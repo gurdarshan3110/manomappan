@@ -1,4 +1,3 @@
-{{-- filepath: /Users/damanmokha/damanmokha/manomaapan/resources/views/home.blade.php --}}
 @extends('layouts.layout')
 
 @section('content')

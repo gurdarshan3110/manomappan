@@ -10,13 +10,13 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
+                        <a class="nav-link" href="{{ route('pages.about') }}">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact us</a>
+                        <a class="nav-link" href="{{ route('pages.contact') }}">Contact us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="login.html">Login</a>
+                        <a class="nav-link active" href="{{ route('pages.login') }}">Login</a>
                     </li>
                 </ul>
             </div>    

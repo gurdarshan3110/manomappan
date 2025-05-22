@@ -9,9 +9,9 @@
             </div>
             <div class="col-lg-2 col-md-2">
                 <ul class="social-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="{{ route('pages.home') }}">Home</a></li>
+                    <li><a href="{{ route('pages.about') }}">About Us</a></li>
+                    <li><a href="{{ route('pages.contact') }}">Contact Us</a></li>
                     <li><a href="#">Instagram</a></li>
                     <li><a href="#">Facebook</a></li>
                     <li><a href="#">Linkedin</a></li>
