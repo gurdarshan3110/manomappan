@@ -13,32 +13,74 @@
                 <div class="col-md-6">
                     <div class="register">
                         <h3>Please register to start your career journey with us!</h3>
-                        <form>
+                        
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <form method="POST" action="{{ route('auth.register') }}">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="your-name" class="form-label">Your First Name</label>
-                                    <input type="text" class="form-control" id="your-name" name="your-name"
-                                        placeholder="Enter your First Name here" required>
+                                    <label for="first_name" class="form-label">Your First Name</label>
+                                    <input type="text" class="form-control @error('first_name') is-invalid @enderror" 
+                                           id="first_name" name="first_name" value="{{ old('first_name') }}"
+                                           placeholder="Enter your First Name here" required>
+                                    @error('first_name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="your-surname" class="form-label">Your Last Name</label>
-                                    <input type="text" class="form-control" id="your-surname" name="your-surname"
-                                        placeholder="Enter your Last Name here" required>
+                                    <label for="last_name" class="form-label">Your Last Name</label>
+                                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" 
+                                           id="last_name" name="last_name" value="{{ old('last_name') }}"
+                                           placeholder="Enter your Last Name here" required>
+                                    @error('last_name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="your-email" class="form-label">Your Email</label>
-                                    <input type="email" class="form-control" id="your-email" name="your-email"
-                                        placeholder="Enter Your Email here" required>
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" 
+                                           id="email" name="email" value="{{ old('email') }}"
+                                           placeholder="Enter Your Email here" required>
+                                    @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="your-subject" class="form-label">Your Phone Number</label>
-                                    <input type="text" class="form-control" id="your-subject"
-                                        placeholder="Enter Phone Number here" name="your-subject" required>
+                                    <label for="phone" class="form-label">Your Phone Number</label>
+                                    <input type="text" class="form-control @error('phone') is-invalid @enderror" 
+                                           id="phone" name="phone" value="{{ old('phone') }}"
+                                           placeholder="Enter Phone Number here" required>
+                                    @error('phone')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror" 
+                                           id="password" name="password" placeholder="Enter Password" required>
+                                    @error('password')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="password_confirmation" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" 
+                                           id="password_confirmation" name="password_confirmation" 
+                                           placeholder="Confirm Password" required>
                                 </div>
 
                                 <div class="col-12">
-                                    <a href="payment.html" class="btn btn-dark">Join Now</a>
-                                    <button type="submit" class="btn btn-light">Reset</button>
+                                    <button  class="btn btn-dark">Register</button>
+                                    <button type="reset" class="btn btn-light">Reset</button>
                                 </div>
                             </div>
                         </form>

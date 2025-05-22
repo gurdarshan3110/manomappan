@@ -4,12 +4,6 @@
     <section class="sign-up login" data-aos="fade-down" data-aos-delay="100">
         <div class="container">
             <div class="row">
-                <!-- <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="journey">
-                                <h1>Your journey to a fulfilling career starts here.</h1>
-                                <img src="images/sun-img1.png" class="img-fluid">
-                            </div>
-                        </div> -->
                 <div class="col-md-6 offset-md-3">
                     <div class="register">
                         <h3>Login into Manomaapan</h3>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AuthController;
 
 Route::name('pages.')->group(function () {
     Route::get('/', [PageController::class, 'home'])->name('home');
@@ -10,4 +11,8 @@ Route::name('pages.')->group(function () {
     Route::get('/about', [PageController::class, 'about'])->name('about');
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
     Route::get('/forgot-password', [PageController::class, 'forgotPassword'])->name('forgot_password');
+});
+
+Route::name('auth.')->group(function () {
+    Route::post('/register', [AuthController::class, 'register'])->name('register');
 });
