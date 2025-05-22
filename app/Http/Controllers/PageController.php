@@ -35,4 +35,10 @@ class PageController extends Controller
         $meta = config('metatags.contact');
         return view('pages.contact', compact('meta'));
     }
+
+    public function forgotPassword()
+    {
+        $meta = config('metatags.forgot_password');
+        return view('pages.forgot_password', compact('meta'));
+    }
 }

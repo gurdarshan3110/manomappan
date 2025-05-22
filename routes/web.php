@@ -9,4 +9,5 @@ Route::name('pages.')->group(function () {
     Route::get('/register', [PageController::class, 'register'])->name('register');
     Route::get('/about', [PageController::class, 'about'])->name('about');
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+    Route::get('/forgot-password', [PageController::class, 'forgotPassword'])->name('forgot_password');
 });

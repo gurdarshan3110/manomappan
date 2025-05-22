@@ -5,11 +5,11 @@
         <div class="container">
             <div class="row">
                 <!-- <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="journey">
-                            <h1>Your journey to a fulfilling career starts here.</h1>
-                            <img src="images/sun-img1.png" class="img-fluid">
-                        </div>
-                    </div> -->
+                            <div class="journey">
+                                <h1>Your journey to a fulfilling career starts here.</h1>
+                                <img src="images/sun-img1.png" class="img-fluid">
+                            </div>
+                        </div> -->
                 <div class="col-md-6 offset-md-3">
                     <div class="register">
                         <h3>Login into Manomaapan</h3>
@@ -31,6 +31,9 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="register-opt mt-4">
+                            <h6>Don't have an account? <a href="{{ route('pages.register') }}">Register here</a></h6>
+                        </div>
                         <div class="register-opt2">
                             <h4>Alternatively you can also register With</h4>
                             <ul>
@@ -45,11 +48,10 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="forgot-password.html" class="forgot-pswd-label">Forgot Password? Click here</a>
+                        <a href="{{ route('pages.forgot_password') }}" class="forgot-pswd-label">Forgot Password? Click
+                            here</a>
                     </div>
-
                 </div>
             </div>
-        </div>
     </section>
 @endsection

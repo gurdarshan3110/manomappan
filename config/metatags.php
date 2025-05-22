@@ -31,4 +31,10 @@ return [
         'keywords' => 'contact, manomaapan, career counselling, career guidance',
         'author' => 'Manomaapan',
     ],
+    'forgot_password' => [
+        'title' => 'Forgot Password - Manomaapan',
+        'description' => 'Reset your password to access your Manomaapan account for career counselling and guidance.',
+        'keywords' => 'forgot password, manomaapan, career counselling, career guidance',
+        'author' => 'Manomaapan',
+    ],
 ];
