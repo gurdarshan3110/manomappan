@@ -1,0 +1,1785 @@
+
+/* Fonts */
+:root {
+  --default-font: "Poppins",  sans-serif;
+  --heading-font: "Poppins",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color:#FFECEC; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #005870; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: ##005870; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #000;  /* The default color of the main navmenu links */
+  --nav-hover-color: #db3c7a; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #3a3939; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #db3c7a; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+ul{
+  margin:0;
+  padding: 0;
+}
+
+li{
+  margin:0;
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+   font-family: "Poppins", sans-serif;
+}
+
+p {
+  color: #1A1818;
+  font-size: 18px;
+   font-family: "Poppins", sans-serif;
+}
+
+.navbar .dropdown-toggle::after {
+  border: none;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  padding: 10px 32px;
+  color: #005870;
+  font-size: 15px;
+  font-weight:400;
+  outline: none;
+  font-family: var(--default-font);
+  border-radius: 28px;
+}
+
+a.nav-link.active {
+  background: #005870;
+  color: #fff !important;
+
+}
+
+.language-nav a.nav-link.active {
+  background: #FFCBCB;
+}
+
+a.nav-link:hover{
+  color: #fff !important;
+  background: #0077AB;
+}
+
+.navbar-light.sticky-top {
+  top: -100px;
+  transition: .5s;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light a.btn {
+  height: 75px;
+}
+
+a.forgot-pswd-label {
+  color: #005870;
+  font-size: 20px;
+  margin-top: 48px;
+  display: block;
+  text-decoration: underline;
+}
+
+.register.forgot-pswd-form p {
+  color: #005870;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+section.sign-up.login {
+  margin-bottom: 70px;
+}
+
+.register.forgot-pswd-form {
+  min-height: calc(100vh - 443px);
+}
+
+section.sign-up.coming-soon h2 {
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
+  padding: 100px 0 72px;
+}
+
+section.sign-up.coming-soon p {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  color: #005870;
+}
+
+
+section.sign-up.coming-soon {
+  min-height: calc(100vh - 443px);
+}
+
+a.btn.btn-dark:hover {
+  background: #0077AB;
+}
+
+button.btn.btn-light:hover{
+  background: #D2F5FF;
+}
+
+a.btn.btn-light:hover{
+  background: #D2F5FF;
+}
+
+a.forgot-pswd-label:hover{
+  color:#0077AB;
+}
+
+.payment-processed {
+  margin-top: 213px;
+}
+
+.payment-processed-inner span {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #1A1818;
+}
+
+.payment-processed-inner h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 24px 0;
+}
+
+.payment-processed-inner a.btn.btn-dark {
+  display: inline-block;
+  margin: 24px 0 0 0;
+  background: #005870;
+  text-decoration: none;
+  padding: 10px 32px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 28px;
+}
+
+.payment-processed-inner p {
+  margin-bottom: 0;
+}
+
+.why-choose {
+  margin-top: 48px;
+}
+
+.why-choose h3 {
+  font-weight: 700;
+  font-size: 32px;
+  color: #1A1818;
+  margin-bottom: 32px;
+}
+
+.why-choose-box h4 {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 64px 0 16px;
+}
+
+.why-choose-box p {
+  font-size: 16px;
+  margin: 0;
+  color: #005870;
+}
+
+.why-choose-box {
+  padding: 32px;
+  background: #EFFCFF;
+  border-radius: 12px;
+  height:100%;
+}
+
+
+@media (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+      display: block;
+      border: none;
+      margin-top: 0;
+      top: 150%;
+      opacity: 0;
+      visibility: hidden;
+      transition: .5s;
+  }
+
+  .navbar .nav-item:hover .dropdown-menu {
+      top: 100%;
+      visibility: visible;
+      transition: .5s;
+      opacity: 1;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-light .navbar-nav .nav-link  {
+      margin-right: 0;
+      padding: 5px 0;
+  }
+
+  .navbar-light .navbar-nav {
+      border-top: 1px solid #EEEEEE;
+  }
+}
+
+.journey {
+  background: var(--default-color);
+  border-radius: 16px;
+}
+
+.journey h1 {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 69px;
+  padding: 80px 70px 120px;
+  color: #FF7B7B;
+}
+
+.journey img{
+  width:100%;
+}
+
+.register h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.register {
+  padding: 80px 50px 0;
+}
+
+.register input {
+  background: #F1F9FB;
+  border-radius: 6px;
+  border: 1px solid var(--Light-Blue, #7BAAB7);
+  margin-bottom: 34px;
+  color: #7BAAB7;
+  height: 44px;
+}
+
+.register label {
+  font-size: 16px;
+  color: #005870;
+  margin-bottom: 4px;
+}
+
+ a.btn.btn-dark {
+  background: var(--heading-color);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 28px;
+  padding: 10px 32px;
+  border: 1px solid transparent;
+}
+
+button.btn.btn-light {
+  border: 1px solid var(--Light-Blue, #7BAAB7);
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 28px;
+  padding: 10px 32px;
+  background: #fff;
+}
+
+a.btn.btn-light {
+  border: 1px solid var(--Light-Blue, #7BAAB7);
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 28px;
+  padding: 10px 32px;
+  background: #fff;
+  color:#005870;
+}
+
+.register-opt2 {
+  background: #F1F9FB;
+  padding: 24px;
+  border-radius: 16px;
+  margin-top: 48px;
+}
+
+.register-opt2 h4 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.register-opt2 ul li {
+  list-style: none;
+  margin: 0;
+  background: #fff;
+  border-radius: 8px;
+}
+.register-opt2 ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.register-opt2 ul li a{
+  text-decoration: none;
+}
+
+.register-opt2 ul li a span {
+  font-size: 16px;
+  color: #1A1818;
+  padding-right: 10px;
+}
+
+footer {
+  background: var(--default-color);
+  border-radius: 16px;
+  padding: 36px 32px;
+  margin-top:25px;
+}
+
+.ft-logo {
+  mix-blend-mode: Luminosity;
+  margin-bottom: 24px;
+}
+
+footer p {
+  color: #3E0505;
+  margin: 0;
+  font-size:16px;
+}
+
+ul.social-links li {
+  margin-bottom: 16px;
+}
+
+ul.social-links li a {
+  font-size: 16px;
+  color: #3E0505;
+  text-decoration: underline;
+}
+
+ul.address-details li {
+  font-size: 14px;
+  color: #3E0505;
+}
+
+ul.address-details li {
+  font-size: 14px;
+  color: #3E0505;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.journey.payment-left h2 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 64px;
+  padding: 80px 70px 120px;
+  color: #FF7B7B;
+  margin-bottom: 0;
+}
+
+
+.register {
+  padding: 80px 50px 0;
+}
+
+.career-plan {
+  padding: 80px 30px 0;
+  color: #005870;
+}
+
+.career-plan h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.career-plan form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.career-plan form label {
+  display: flex
+;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background: #F1F9FB;
+  transition: border-color 0.3s, background-color 0.3s;
+  border: 1px solid #005870;
+  margin-bottom: 0;
+  justify-content: space-between;
+}
+.career-plan form label:hover {
+  background-color: D2F5FF;
+}
+.career-plan form label:has(input[type=radio]:checked) {
+  background: #D2F5FF;
+}
+.career-plan form input[type=radio] {
+  position: relative;
+  width: 0;
+  margin-bottom: 0;
+  margin-right:24px;
+}
+.career-plan form input[type=radio]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid #005870;
+  transition: opacity 0.3s;
+  width:24px;
+  height:24px;
+
+}
+.career-plan form input[type=radio]:checked::after {
+  background: #D2F5FF;
+  border: 4px solid #005870;
+  
+}
+
+.career-plan form label p {
+  font-size: 14px;
+  color: #005870;
+  margin-bottom:0;
+}
+.career-plan form label p span {
+  display: block;
+  font-weight: 700;
+  color: #005870;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.career-plan span {
+  margin-bottom: 8px;
+  display: block;
+}
+
+.career-plan-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.career-plan-right {
+  display: flex
+;
+  align-items: center;
+  gap: 16px;
+  color: #005870;
+}
+
+.payment-option a {
+  font-size: 14px;
+  text-decoration: underline;
+  margin: 32px 0;
+  display: block;
+}
+
+.total-amount {
+  background: #D2F5FF;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.payment-option h5 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.total-amount h2 {
+  font-weight: 700;
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.total-amount p{
+  margin-bottom: 0;
+}
+
+.career-plan a.btn.btn-dark {
+  display: inline-block;
+  margin: 32px 0 0 0;
+  background: #005870;
+  text-decoration: none;
+  padding: 10px 32px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 28px;
+}
+
+.payment-processed-inner {
+  background: #D2F5FF;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.payment-processed h5 {
+  font-size: 16px;
+  margin-top: 27px;
+  font-weight: 400;
+}
+
+.payment-processed h5 a {
+  text-decoration: underline;
+  padding-left: 10px;
+}
+
+nav.navbar.navbar-expand-lg.bg-white.navbar-light.language-nav {
+  background: #fff !important;
+  border-radius: 30px;
+  padding: 0px 0 0 16px;
+}
+
+.banner-left {
+  background: #FFECEC;
+  padding: 0px 36px;
+  border-radius: 16px;
+  height: 100%;
+  display: flex
+;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-left h2 {
+  font-weight: 700;
+  font-size: 42px;
+  margin: 24px 0;
+}
+
+.banner-left p {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+nav.navbar.navbar-expand-lg.bg-white.navbar-light.language-nav {
+  background: #fff !important;
+  border-radius: 30px;
+  padding-left: 16px;
+}
+.career-counselling-lt p {
+  font-size: 20px;
+  width: 75%;
+}
+
+.career-counselling-lt {
+  padding-top: 32px;
+}
+
+.career-counselling-rt {
+  background: #FFECEC;
+  padding: 36px;
+  border-radius: 8px;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.career-counselling-rt::before {
+  position: absolute;
+  bottom: 0;
+  content: url(../images/stats1.png);
+  left: 0;
+  width: 100%;
+  z-index:-1;
+  overflow: hidden;
+}
+
+.career-counselling-rt.career-counselling-box2::before {
+  content: url(../images/stats2.png);
+  top: 0;
+}
+
+
+.career-counselling-rt h2 {
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 55px;
+  color: #3E0505;
+  margin: 0;
+}
+
+.career-counselling-rt p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: #3E0505;
+}
+
+.career-counselling-rt p {
+  margin: 12px 0;
+}
+
+.career-counselling-rt span {
+  display: inline-block;
+  font-size: 16px;
+  color: #3E0505;
+}
+
+.career-counselling-rt img {
+  margin: 64px 0 0 auto;
+  display: block;
+}
+
+.career-counselling-box2 img {
+  margin: 0 0 54px;
+}
+
+
+
+.pricing-table {
+	background: #fff;
+	box-shadow: 0px 1px 10px -6px rgba(0, 0, 0, .15);
+	padding: 2rem;
+	border-radius: 4px;
+
+}
+
+section.career-counselling {
+  padding: 96px 0;
+}
+
+.our-plan table tr th:first-child {
+  background: #F7F7F7;
+}
+
+.our-plan table tr th:nth-child(2) {
+  background: #ECFBFF;
+  text-align: left;
+  color: #005870;
+}
+
+.our-plan table tr th:last-child {
+  background: #D2F5FF;
+  text-align: left;
+  color: #005870;
+}
+
+
+.our-plan table tr td:first-child {
+  background: #F7F7F7;
+  text-align: center;
+  color: #1A1818;
+  width: 33%;
+  vertical-align: middle;
+}
+
+.our-plan table tr td:nth-child(2) {
+  background: #ECFBFF;
+  text-align: left;
+  color: #005870;
+}
+
+.our-plan table tr td:last-child {
+  background: #D2F5FF;
+  text-align: left;
+  color:#005870;
+}
+
+.our-plan table,
+.our-plan tr,
+.our-plan th,
+.our-plan td {
+  border: none !important;
+}
+
+
+.our-plan table {
+  border-collapse: separate;
+  border-spacing: 4px; /* Adjust gap as needed */
+}
+
+.our-plan th, .our-plan td {
+  padding: 25px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+th.table-heading td {
+  background: transparent !important;
+}
+
+th.table-heading td h3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: left;
+  color: Teal;
+}
+
+.our-plan table th h4 {
+    font-size: 20px;
+    color: #1A1818;
+}
+
+td.price-text {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 28px;
+  text-align: center !important;
+}
+
+section.our-plan {
+  padding: 48px 0;
+}
+
+section.students-say {
+  margin: 48px 0;
+  background: url(../images/gradient-bg.png) no-repeat;
+  padding: 135px 0 185px 300px;
+  background-size: cover;
+  position: relative;
+  background-size: 100% 100%;
+  background-position: top;
+
+}
+
+
+
+
+/* section.students-say::before{
+  content: url(../images/gradient-bg-bottom.png);
+  background: no-repeat;
+  position: absolute;
+} */
+
+section.students-say h3{
+  color: #fff;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+section.students-say p{
+  color: #fff;
+}
+
+.students-card {
+  border-radius: 11px;
+  padding: 24px;
+  background: #fff;
+  margin-top:36px;
+}
+
+.students-card h4 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom:16px;
+}
+
+
+
+.students-details {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 13px;
+}
+
+.student-text h5 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1A1818;
+  margin: 0;
+}
+
+.student-text p {
+  font-size: 12px;
+  line-height: 24px;
+  color: #1A1818 !important;
+  margin: 0;
+}
+
+.works p {
+  margin: 24px 0 36px;
+}
+
+.works-card{
+  padding:36px;
+  position: relative;
+
+}
+
+
+.works-card h5 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  margin: 33px 0 0 0;
+}
+
+.works-card.works-card3 {
+  background: #D2F5FF !important;
+  border-radius: 0 16px 16px 0px !important;
+}
+
+
+.works-card2 {
+  background: #F7F7F7 !important;
+  border-radius:0px !important;
+
+}
+.works-card {
+  background: #D2F5FF;
+  padding: 36px;
+  border-radius: 16px 0px 0 16px;
+}
+
+.works-inner .btn-prev{
+  background:url(../images/prev-icon.png) no-repeat !important;
+  left: 30%;
+  width:80px;
+  height:80px;
+  top: 45% !important;
+}
+
+.works-inner .btn-next{
+  background:url(../images/next-icon.png) no-repeat !important;
+  right: 30%;
+  width:80px;
+  height:80px;
+  top: 45% !important;
+}
+
+.btn-prev {
+  position: absolute;
+  right: -40px;
+  z-index: 9;
+  top: 40%;
+}
+
+.our-plan table span {
+  margin-top: 24px;
+}
+
+.join-manomaapan{
+  margin: 96px 0;
+}
+
+.join-manomaapan-inner {
+  padding: 36px 50px;
+  background: #FFECEC;
+  border-radius: 14px;
+}
+
+.join-manomaapan-lt {
+  display: flex;
+  gap: 33px;
+  align-items: center;
+}
+
+.join-manomaapan-lt h3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+}
+
+section.faqs .accordion {
+  background: #D2F5FF;
+  border-radius: 16px;
+  padding: 13px 40px;
+}
+
+section.faqs h3 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  color: #1A1818;
+}
+
+.accordion-button::after {
+  background: url("../images/plus-icon.png") ;
+  transition: all 0.5s;
+  width: 10px;
+  height: 10px;
+}
+.accordion-button:not(.collapsed)::after {
+  background: url("../images/minus-icon.png");
+  width: 10px;
+  height: 10px;
+}
+.accordion-button::after {
+  transition: all 0.5s;
+}
+
+button.accordion-button.collapsed{
+  box-shadow: none !important;
+}
+
+.accordion-header {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #005870;
+}
+
+.faqs p{
+  font-weight: 300;
+  font-size: 14px;
+  line-height: normal;
+  color:#005870;
+  margin-bottom: 0;
+}
+
+.faqs .accordion-header {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #005870;
+  border-bottom: 1px solid #005870;
+}
+
+.faqs .accordion-button:focus{
+  box-shadow: none !important;
+}
+
+section.works h3 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  color: #1A1818;
+}
+
+section.our-plan h3 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  text-align: center;
+  color: #1A1818;
+}
+
+.career-compass-card {
+    border-radius: 7px;
+    background: var(--Blue-wash, #D2F5FF);
+    padding: 16px;
+}
+
+section.our-plan.our-plan-mob{
+  display:none;
+}
+
+.btn-prev.btn-prev-phone {
+    display: none;
+}
+
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.my-language{
+  display: none;
+}
+
+.why-choose a.btn.btn-light {
+  margin-top: 32px;
+}
+/* profile menu */
+
+.profile {
+  position: relative;
+  border: 1px solid var(--Light-Blue, #7BAAB7);
+  background: #F1F9FB;
+  width: 76px;
+  height: 46px;
+  border-radius: 30px;
+  display: flex
+;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile .user {
+  background: #D52EFF;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  line-height: 100%;
+}
+
+.profile p {
+  line-height: 1;
+  font-size: 14px;
+  opacity: .6;
+}
+
+.profile .img-box {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+}
+
+.profile .img-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+/* menu (the right one) */
+  
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 16px;
+  width: 200px;
+  min-height: 100px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: 300ms;
+}
+
+.menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  background: #F1F9FB;
+  transform: rotate(45deg);
+  z-index: -1;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+}
+
+.menu.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* menu links */
+
+.menu ul {
+  position: relative;
+  display: flex
+;
+  flex-direction: column;
+  z-index: 10;
+  background: #F1F9FB;
+}
+
+.menu ul li {
+  list-style: none;
+}
+
+.menu ul li:hover {
+  background: #eee;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 6px;
+}
+
+.menu ul li a i {
+  font-size: 1.2em;
+}
+
+.menu ul li {
+  list-style: none;
+  border-bottom: 1px solid #7BAAB7;
+}
+
+@media screen and (max-width:1399px) {
+
+.journey h1 {
+  font-size: 36px;
+  line-height: normal;
+  padding: 40px 20px 60px;
+}
+
+.register h3 {
+  font-size: 24px;
+}
+
+.register {
+  padding: 60px 20px 0;
+}
+
+.register-opt2 h4 {
+  font-size: 16px;
+}
+
+.register-opt2 ul li a span {
+  font-size: 14px;}
+
+  .register-opt2 {
+    padding: 16px;
+  }
+
+  .register input{
+    margin-bottom: 18px;
+  } 
+
+  .journey.payment-left h2 {
+    font-size: 36px;
+    line-height: normal;
+    padding: 40px 20px 60px;
+  }
+
+  .career-plan h3{
+    font-size: 24px;
+  }
+
+  .career-plan{
+    padding: 60px 20px 0;
+  }
+
+
+.career-plan form label p {
+  font-size: 14px;}
+
+  .career-plan-right {
+    gap: 8px;}
+
+  .career-plan-left{
+  gap:8px;
+}
+
+.career-plan-left{
+  display: flex;
+  width: 70%;
+}
+
+.payment-processed-inner h2 {
+  font-size: 28px;
+
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.banner-left {
+  padding: 0px 20px;
+
+}
+
+.banner-left h2 {
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+a.btn.btn-light {
+  font-size: 12px;
+  padding: 6px 14px;
+}
+
+a.btn.btn-dark {
+  font-size: 12px;
+   padding: 6px 14px;
+}
+
+
+.why-choose-box {
+  padding: 14px;
+}
+
+.why-choose-box h4 {
+  font-size: 18px;
+  margin: 30px 0 16px;
+}
+
+.why-choose-box p {
+  font-size: 14px;
+}
+
+.career-counselling-rt {
+  padding: 14px;
+}
+
+.career-counselling-lt p {
+  font-size: 18px;
+  width: 100%;
+}
+
+.career-counselling-rt h2 {
+  font-size: 54px;
+  line-height: 55px;
+}
+.slider2 {
+  padding: 20px;
+}
+
+section.students-say {
+  padding: 135px 0 185px 30px;
+
+}
+
+.payment-processed-inner a.btn.btn-dark{
+  font-size:12px;
+  display: block;
+}
+}
+
+@media screen and (max-width:991.98px) {
+
+  .journey.payment-left h2 {
+    font-size: 24px;
+
+  }
+
+  .career-plan h3{
+    font-size: 20px;
+    margin: 16px 0;
+  } 
+
+.register h3 {
+  font-size: 20px;
+}
+
+.journey h1 {
+  font-size: 24px;}
+
+
+.register input {
+  font-size: 12px;
+}
+
+.register-opt2 h4 {
+  font-size: 14px;
+}
+
+.register-opt2 ul li {
+  text-align: center;
+  padding:0px;
+}
+
+.register-opt2 ul li a span {
+  padding: 0;
+}
+
+.register-opt2 {
+  padding:16px;
+}
+
+section.sign-up.coming-soon h2 {
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
+  padding: 40px 0;
+}
+
+section.sign-up.coming-soon h2 {
+  font-size: 48px;
+  line-height: 1;
+  padding: 40px 0;
+}
+
+.payment-option a {
+  margin: 20px 0;
+}
+
+.career-plan-left {
+  display: block;
+  width: 60%;
+}
+
+.career-plan form label p span{
+  margin:8px 0;
+}
+
+.payment-processed {
+  margin-top: 20px;
+}
+
+.payment-processed-inner h2{
+  font-size: 20px;
+}
+
+.payment-processed-inner a.btn.btn-dark {
+  text-align: left;
+}
+
+.career-plan{
+  padding:0;
+}
+
+.banner-left {
+  padding: 20px;
+  margin-bottom: 8px;
+  height: auto;
+}
+
+.why-choose h3 {
+  font-size: 24px;
+
+}
+
+.why-choose-box {
+  padding: 24px 32px;
+  margin-bottom: 10px;
+  height: auto;
+}
+
+section.career-counselling {
+  padding: 0;
+}
+
+.career-counselling-rt {
+  padding: 24px;
+  margin-bottom: 16px;
+  height: auto;
+}
+
+.career-counselling-rt::before {
+  overflow: hidden;
+  height: 100%;
+}
+
+.career-counselling-lt {
+  padding-top: 0;
+}
+
+a.nav-link:hover{
+  background: transparent;
+  padding: 0 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  padding: 0;
+  font-size: 12px;
+  margin: 10px 0 0;
+}
+
+.language-nav a {
+  font-size: 14px;
+}
+.my-language{
+  display: block;
+}
+
+.language-nav .navbar-collapse.collapse {
+  display: none;
+}
+
+.language-nav button.navbar-toggler {
+  display: none;
+}
+
+select.my-language.selectpicker {
+  background: #FFCBCB url(../images/toggle2.png) no-repeat 80% 52%;
+  border: none;
+  border-radius: 28px;
+  font-size: 14px;
+  width: 163px;
+  text-align: center;
+  height: 42px;
+}
+
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance:none;
+  appearance:none;
+}
+
+select.my-language.selectpicker:focus {
+  border: none;
+  outline: none;
+  box-shadow: none; 
+}
+
+button.navbar-toggler {
+  display: none;
+}
+
+button.navbar-toggler {
+  display: none;
+}
+}
+
+@media screen and (max-width:767px) {
+  .journey {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: end;
+    gap: 10px;
+    padding: 0;
+}
+  
+
+.journey h1 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height:normal;
+  padding: 0;
+  color: #005870;
+}
+
+.journey img {
+  width: 136px;
+}
+
+.register {
+  padding: 16px 0px 0;
+}
+
+.register h3 {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.register input{
+  margin-bottom:16px;
+}
+
+.register a.btn.btn-dark{
+  font-weight: 400;
+}
+
+.register-opt2 ul li a span{
+  display: none;
+}
+
+.register-opt2 {
+  margin-top: 24px;
+}
+
+a.nav-link.active {
+  background: transparent;
+  color: #005870 !important;
+}
+
+ul.navbar-nav.ms-auto {
+  margin-bottom: 10px;
+}
+
+section.sign-up.coming-soon {
+  min-height: inherit;
+
+}
+
+.register.forgot-pswd-form {
+  min-height: inherit;
+}
+
+section.sign-up.coming-soon h2 {
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 48px;
+  padding: 60px 0 24px;
+}
+
+section.sign-up.coming-soon p {
+  font-size: 16px;
+
+}
+
+.register.forgot-pswd-form h3{
+  font-size: 36px;
+}
+
+.ft-logo {
+  margin-bottom: 16px;
+}
+
+ul.social-links {
+  margin: 48px 0 36px;
+}
+
+footer p {
+  color: #3E0505;
+  margin: 14px 0 0 0;
+  font-size: 14px;
+}
+
+footer {
+  padding: 36px 16px;
+}
+
+.journey.payment-left h2 {
+  font-weight: 400;
+  font-size: 14px;
+  padding:15px 0;
+  color: #005870;
+  line-height: normal;
+}
+
+a.forgot-pswd-label {
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+section.sign-up.login {
+  margin-bottom: 0;
+}
+
+.register input {
+  font-size: 16px;
+}
+
+.career-plan-left{
+  display: flex;
+}
+
+.career-plan-right {
+  gap: 10px;
+}
+
+.career-plan form label p span {
+  margin:0;
+}
+
+.career-plan a.btn.btn-dark {
+  display: block;
+}
+
+
+.career-plan-left {
+  width: 68%;
+}
+
+.btn-prev {
+  position: absolute;
+  left: 40%;
+  z-index: 9;
+  bottom: -40px;
+  top: unset;
+  right: unset;
+}
+
+.join-manomaapan-lt {
+  display: block;}
+
+  .join-manomaapan-inner {
+    padding: 32px;
+  }
+
+  .join-manomaapan-lt h3 {
+    margin: 33px 0 48px;
+}
+
+section.faqs .accordion {
+  padding: 32px 8px;
+}
+
+
+section.faqs h3 {
+  font-size: 24px;
+
+}
+section.students-say {
+  background: url(../images/phone-gradient-bg.png) no-repeat;
+  background-size: cover;
+  padding: 75px 0 210px;
+}
+
+.our-plan table{
+  display: none;
+}
+
+section.students-say h3 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+section.our-plan h3 {
+  font-size: 24px;
+  line-height: 48px;
+}
+
+section.works h3{
+  font-size: 24px;
+  line-height: 48px;
+}
+
+.works p {
+  margin: 0px 0 36px;
+}
+
+.join-manomaapan {
+  margin: 48px 0;
+}
+
+a.btn.btn-dark {
+  font-size: 12px;
+  padding: 10px 32px;
+}
+
+a.btn.btn-light {
+  font-size: 12px;
+  padding: 10px 32px;
+}
+
+.banner-left .col-12 {
+  flex-direction: column-reverse;
+  display: flex;
+  gap: 12px;
+  align-items: self-start;
+}
+
+.banner-left h2 {
+  font-size: 24px;
+}
+
+.banner-left p {
+  font-size: 14px;
+}
+
+section.our-plan.our-plan-mob{
+  display:block;
+  padding: 0;
+}
+
+section.our-plan {
+    display: none;
+}
+
+.career-compass-price {
+    display: flex
+;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.career-compass-price a.btn.btn-dark.w-100 {
+    width: 60% !important;
+}
+
+section.our-plan.our-plan-mob P {
+    font-size: 14px;
+        margin-top: 24px;
+        color:#005870;
+}
+
+.career-compass-card h4 {
+    color: var(--Teal, #005870);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.career-compass-price h4 {
+    color: var(--Teal, #005870);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.career-text {
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.works-card svg, path{
+    fill: #ED7C7C;
+}
+
+.works-card.works-card2 svg, path{
+  stroke: #ED7C7C;
+}
+
+.btn-prev.btn-prev-phone {
+    display: block;
+}
+
+.btn-prev {
+    display: none;
+}
+
+.career-compass-card:first-child{
+  margin-bottom: 16px;
+}
+
+.swiper-pagination-bullet {
+  background: transparent !important;
+  border:1px solid #fff;
+  opacity:1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff !important; /* blue active bullet */
+  border:1px solid transparent;
+}
+
+.swiper-container {
+  padding-bottom:60px; /* creates space for pagination */
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #000;
+    opacity: 1;
+    margin: 4px;
+}
+
+.swiper-pagination {
+  margin-top:24px !important;
+}
+
+
+}
