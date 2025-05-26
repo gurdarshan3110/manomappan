@@ -14,11 +14,14 @@ use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
 
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
-    use HasFactory, Notifiable, TwoFactorAuthenticatable;
+    use HasFactory;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
     public const USER_TYPE_ADMIN = 'ADMIN';
     public const USER_TYPE_USER = 'USER';
     public const STATUS_ACTIVE = 'ACTIVE';
+    public const STATUS_SUSPENDED = 'SUSPENDED';
     public const STATUS_INACTIVE = 'INACTIVE';
 
     /**
@@ -69,7 +72,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return trim("{$this->first_name} {$this->last_name}");
     }
-    
+
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->user_type === self::USER_TYPE_ADMIN;
@@ -80,7 +83,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return $this->avatar_url ? Storage::url($this->avatar_url) : null;
     }
 
-    public function getUserTypeList(): array
+    public static function getUserTypeList(): array
     {
         return [
             self::USER_TYPE_ADMIN => __('Admin'),
@@ -88,7 +91,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         ];
     }
 
-    public function getStatusList(): array
+    public static function getStatusList(): array
     {
         return [
             self::STATUS_ACTIVE => __('Active'),
@@ -123,6 +126,15 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
                 ->orWhere('last_name', 'like', "%{$search}%")
                 ->orWhere('email', 'like', "%{$search}%")
                 ->orWhere('phone', 'like', "%{$search}%");
+        });
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($user) {
+            $user->name = trim("{$user->first_name} {$user->last_name}");
         });
     }
 }
