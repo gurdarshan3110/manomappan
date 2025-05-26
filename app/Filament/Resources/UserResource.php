@@ -141,6 +141,7 @@ class UserResource extends Resource
                 ])->tooltip('Actions'),
             ])
             ->actionsPosition(ActionsPosition::BeforeColumns)
+            ->defaultSort('created_at', 'desc')
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
