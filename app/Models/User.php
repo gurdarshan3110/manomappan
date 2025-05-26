@@ -14,8 +14,12 @@ use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
 
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, TwoFactorAuthenticatable;
+
+    public const USER_TYPE_ADMIN = 'ADMIN';
+    public const USER_TYPE_USER = 'USER';
+    public const STATUS_ACTIVE = 'ACTIVE';
+    public const STATUS_INACTIVE = 'INACTIVE';
 
     /**
      * The attributes that are mass assignable.
@@ -24,9 +28,14 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
      */
     protected $fillable = [
         'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
-        'avatar_url'
+        'avatar_url',
+        'phone',
+        'user_type',
+        'status'
     ];
 
     /**
@@ -52,13 +61,68 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         ];
     }
 
+    protected $appends = [
+        'full_name',
+    ];
+    
+    public function getFullNameAttribute(): string
+    {
+        return trim("{$this->first_name} {$this->last_name}");
+    }
+    
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        return $this->user_type === self::USER_TYPE_ADMIN;
     }
 
     public function getFilamentAvatarUrl(): ?string
     {
-        return $this->avatar_url ? Storage::url($this->avatar_url) : null ;
+        return $this->avatar_url ? Storage::url($this->avatar_url) : null;
+    }
+
+    public function getUserTypeList(): array
+    {
+        return [
+            self::USER_TYPE_ADMIN => __('Admin'),
+            self::USER_TYPE_USER => __('User'),
+        ];
+    }
+
+    public function getStatusList(): array
+    {
+        return [
+            self::STATUS_ACTIVE => __('Active'),
+            self::STATUS_INACTIVE => __('Inactive'),
+        ];
+    }
+    
+    public function scopeIsAdmin($query)
+    {
+        return $query->where('user_type', self::USER_TYPE_ADMIN);
+    }
+
+    public function scopeIsUser($query)
+    {
+        return $query->where('user_type', self::USER_TYPE_USER);
+    }
+
+    public function scopeIsActive($query)
+    {
+        return $query->where('status', self::STATUS_ACTIVE);
+    }
+
+    public function scopeIsInactive($query)
+    {
+        return $query->where('status', self::STATUS_INACTIVE);
+    }
+
+    public function scopeSearch($query, $search)
+    {
+        return $query->where(function ($q) use ($search) {
+            $q->where('first_name', 'like', "%{$search}%")
+                ->orWhere('last_name', 'like', "%{$search}%")
+                ->orWhere('email', 'like', "%{$search}%")
+                ->orWhere('phone', 'like', "%{$search}%");
+        });
     }
 }
