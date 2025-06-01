@@ -20,7 +20,7 @@ class AuthController extends Controller
             'phone' => ['required', 'string', 'max:20'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-        
+
         $user = User::create([
             'first_name' => $validated['first_name'],
             'last_name' => $validated['last_name'],
@@ -32,7 +32,7 @@ class AuthController extends Controller
         ]);
 
         // auth()->login($user);
-        
+
         return redirect()->route('pages.home')->with('success', 'Registration successful!');
     }
 
@@ -45,7 +45,7 @@ class AuthController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            
+
             $findUser = User::where('email', $user->email)->first();
 
             if ($findUser) {
@@ -63,7 +63,7 @@ class AuthController extends Controller
                     'avatar_url' => $user->avatar,
                     'user_type' => User::USER_TYPE_USER,
                     'status' => User::STATUS_ACTIVE,
-                    'password' => encrypt(rand(1,10000)),
+                    'password' => encrypt(rand(1, 10000)),
                 ]);
 
                 Auth::login($newUser);
@@ -72,5 +72,23 @@ class AuthController extends Controller
         } catch (Exception $e) {
             return redirect()->route('pages.login')->with('error', 'Something went wrong!');
         }
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended(route('dashboard.home'));
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
 }

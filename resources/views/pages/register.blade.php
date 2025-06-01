@@ -93,18 +93,11 @@
                             <h4>Alternatively you can also register With</h4>
                             <ul>
                                 <li>
-                                    <a href="#"><img src="images/social-icon1.png"><span>Google</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="images/social-icon2.png"><span>Apple</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="images/social-icon3.png"><span>Linkedin</span></a>
+                                    <a href="{{ route('auth.google') }}"><img src="images/social-icon1.png"><span>Google</span></a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
