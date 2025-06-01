@@ -11,6 +11,7 @@ Route::name('pages.')->group(function () {
     Route::get('/about', [PageController::class, 'about'])->name('about');
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
     Route::get('/forgot-password', [PageController::class, 'forgotPassword'])->name('forgot_password');
+    Route::get('/payment', [PageController::class, 'payment'])->name('payment');
 });
 
 Route::name('auth.')->group(function () {

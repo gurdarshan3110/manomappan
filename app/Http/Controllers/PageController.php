@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Package;
 
 class PageController extends Controller
 {
     public function home()
     {
         $meta = config('metatags.home');
-        return view('pages.home', compact('meta'));
+        $packages = Package::isActive()->get();
+        return view('pages.home', compact('meta', 'packages'));
     }
 
     public function login()
