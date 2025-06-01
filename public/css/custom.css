@@ -1,0 +1,17 @@
+.input-group button {
+    padding: 10px;
+    height: auto;
+    max-height: 44px;
+    border: 1px solid var(--Light-Blue, #7BAAB7);
+    border-left: 0;
+    background: #F1F9FB;
+    color: #7BAAB7;
+    border-radius: 6px;
+}
+
+.input-group button:hover {
+    background-color: var(--heading-color)
+}
+.input-group input {
+    border-right: 0;
+}

@@ -14,7 +14,6 @@
                     <div class="register">
                         <h3>Please register to start your career journey with us!</h3>
                         
-                        {{-- Validation errors are now shown below each field using Bootstrap's invalid-feedback --}}
 
                         <form method="POST" action="{{ route('auth.register') }}">
                             @csrf
