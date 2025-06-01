@@ -16,4 +16,8 @@ Route::name('pages.')->group(function () {
 
 Route::name('auth.')->group(function () {
     Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+    // Google Login
+    Route::get('auth/google', [AuthController::class, 'redirectToGoogle'])->name('google');
+    Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('google.callback');
 });

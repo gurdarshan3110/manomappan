@@ -80,7 +80,15 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function getFilamentAvatarUrl(): ?string
     {
-        return $this->avatar_url ? Storage::url($this->avatar_url) : null;
+        if (!$this->avatar_url) {
+            return null;
+        }
+
+        if (filter_var($this->avatar_url, FILTER_VALIDATE_URL)) {
+            return $this->avatar_url;
+        }
+
+        return Storage::url($this->avatar_url);
     }
 
     public static function getUserTypeList(): array

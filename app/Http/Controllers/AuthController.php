@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Auth;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -31,5 +34,43 @@ class AuthController extends Controller
         // auth()->login($user);
         
         return redirect()->route('pages.home')->with('success', 'Registration successful!');
+    }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+            
+            $findUser = User::where('email', $user->email)->first();
+
+            if ($findUser) {
+                Auth::login($findUser);
+                return redirect()->route('pages.home');
+            } else {
+                $names = explode(' ', $user->name);
+                $firstName = $names[0];
+                $lastName = isset($names[1]) ? $names[1] : '';
+
+                $newUser = User::create([
+                    'first_name' => $firstName,
+                    'last_name' => $lastName,
+                    'email' => $user->email,
+                    'avatar_url' => $user->avatar,
+                    'user_type' => User::USER_TYPE_USER,
+                    'status' => User::STATUS_ACTIVE,
+                    'password' => encrypt(rand(1,10000)),
+                ]);
+
+                Auth::login($newUser);
+                return redirect()->route('pages.home');
+            }
+        } catch (Exception $e) {
+            return redirect()->route('pages.login')->with('error', 'Something went wrong!');
+        }
     }
 }
