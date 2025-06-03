@@ -88,7 +88,14 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('user.dashboard'));
+            if (Auth::user()->user_type === User::USER_TYPE_USER) {
+                return redirect()->intended(route('user.dashboard'));
+            } else {
+                Auth::logout();
+                return back()->withErrors([
+                    'email' => 'You do not have permission to access this area.',
+                ])->onlyInput('email');
+            }
         }
 
         return back()->withErrors([

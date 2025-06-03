@@ -11,7 +11,7 @@ class Dashboard extends BaseDashboard
 {
     protected static ?string $navigationIcon = 'heroicon-o-home';
     
-    protected static ?string $title = 'Dashbosard';
+    protected static ?string $title = 'Dashboard';
 
     // protected function getHeaderWidgets(): array
     // {
