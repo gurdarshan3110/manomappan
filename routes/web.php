@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('pages.')->group(function () {
@@ -24,7 +25,11 @@ Route::name('auth.')->group(function () {
     Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('google.callback');
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'home'])->name('dashboard.home');
+Route::name('user.')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     // Add more authenticated routes here
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('update-profile');
+    Route::put('/profile/password', [UserController::class, 'updatePassword'])->name('update-password');
 });

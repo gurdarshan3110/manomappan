@@ -4,7 +4,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         if ($(this).scrollTop() > 250) {
             $('.sticky-top').addClass('sticky-nav').css('top', '0px');
         } else {
@@ -22,12 +22,26 @@
                 clickable: true
             },
             breakpoints: {
-                0: { slidesPerView: 1 },
-                767: { slidesPerView: 2.9 },
-                1028: { slidesPerView: 3.9 },
-                1920: { slidesPerView: 3.9 }
+                0: {
+                    slidesPerView: 1
+                },
+                767: {
+                    slidesPerView: 2.9
+                },
+                1028: {
+                    slidesPerView: 3.9
+                },
+                1920: {
+                    slidesPerView: 3.9
+                }
             }
         });
+
+        let profile = document.querySelector('.profile');
+        let menu = document.querySelector('.menu');
+        profile.onclick = function() {
+            menu.classList.toggle('active');
+        }
     });
     AOS.init();
 </script>

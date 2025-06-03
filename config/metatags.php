@@ -37,4 +37,16 @@ return [
         'keywords' => 'forgot password, manomaapan, career counselling, career guidance',
         'author' => 'Manomaapan',
     ],
+    'dashboard' => [
+        'title' => 'Dashboard - Manomaapan',
+        'description' => 'Your personal dashboard for managing career counselling and guidance resources.',
+        'keywords' => 'dashboard, manomaapan, career counselling, career guidance',
+        'author' => 'Manomaapan',
+    ],
+    'user_profile' => [
+        'title' => 'User Profile - Manomaapan',
+        'description' => 'View and edit your profile information on Manomaapan.',
+        'keywords' => 'user profile, manomaapan, career counselling, career guidance',
+        'author' => 'Manomaapan',
+    ],
 ];

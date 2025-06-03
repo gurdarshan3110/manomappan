@@ -15,3 +15,12 @@
 .input-group input {
     border-right: 0;
 }
+
+.form-control {
+    background: #F1F9FB;
+    border-radius: 6px;
+    border: 1px solid var(--Light-Blue, #7BAAB7);
+    margin-bottom: 34px;
+    color: #7BAAB7;
+    height: 44px;
+}

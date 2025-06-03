@@ -31,9 +31,13 @@ class AuthController extends Controller
             'status' => User::STATUS_ACTIVE,
         ]);
 
-        // auth()->login($user);
+        if (!$user) {
+            return redirect()->back()->with('error', 'Registration failed, please try again.');
+        }
 
-        return redirect()->route('pages.home')->with('success', 'Registration successful!');
+        Auth::login($user);
+
+        return redirect()->route('user.dashboard')->with('success', 'Registration successful!');
     }
 
     public function redirectToGoogle()
@@ -50,7 +54,7 @@ class AuthController extends Controller
 
             if ($findUser) {
                 Auth::login($findUser);
-                return redirect()->route('pages.home');
+                return redirect()->route('user.dashboard');
             } else {
                 $names = explode(' ', $user->name);
                 $firstName = $names[0];
@@ -67,7 +71,7 @@ class AuthController extends Controller
                 ]);
 
                 Auth::login($newUser);
-                return redirect()->route('pages.home');
+                return redirect()->route('user.dashboard');
             }
         } catch (Exception $e) {
             return redirect()->route('pages.login')->with('error', 'Something went wrong!');
@@ -84,11 +88,19 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('dashboard.home'));
+            return redirect()->intended(route('user.dashboard'));
         }
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }
