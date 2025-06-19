@@ -110,7 +110,7 @@ class CareerClusterResource extends Resource
                     ->square(),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         CareerCluster::STATUS_PUBLISHED => 'success',
                         CareerCluster::STATUS_DRAFT => 'warning',
                         CareerCluster::STATUS_ARCHIVED => 'danger',
@@ -133,6 +133,8 @@ class CareerClusterResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
