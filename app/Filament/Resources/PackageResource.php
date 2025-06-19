@@ -88,6 +88,11 @@ class PackageResource extends Resource
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('plan_name')
+                    ->limit(30)
+                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+                        return strlen($state) > 30 ? $state : null;
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
                     ->money('INR')
@@ -98,21 +103,55 @@ class PackageResource extends Resource
                         Package::STATUS_ACTIVE => 'success',
                         Package::STATUS_INACTIVE => 'danger',
                         default => 'warning',
+                    }),
+                Tables\Columns\TextColumn::make('counsellor')
+                    ->limit(40)
+                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+                        return strlen($state) > 40 ? $state : null;
                     })
                     ->searchable(),
-                Tables\Columns\TextColumn::make('counsellor')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('language')
+                    ->limit(20)
+                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+                        return strlen($state) > 20 ? $state : null;
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('report')
+                    ->limit(40)
+                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+                        return strlen($state) > 40 ? $state : null;
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('ai_drive_career_support')
+                    ->limit(40)
+                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+                        return strlen($state) > 40 ? $state : null;
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('career_counselling_session')
+                    ->limit(40)
+                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+                        return strlen($state) > 40 ? $state : null;
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sessions_with_role_model_and_parents')
+                    ->limit(40)
+                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+                        return strlen($state) > 40 ? $state : null;
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('certified_expert_guidence')
+                    ->limit(40)
+                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+                        return strlen($state) > 40 ? $state : null;
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

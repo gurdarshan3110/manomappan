@@ -59,6 +59,10 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
+            ->navigationGroups([
+                __('Career'),
+                __('Settings'),
+            ])
             ->plugin(
                 BreezyCore::make()->myProfile(
                     shouldRegisterUserMenu: true,
@@ -72,7 +76,7 @@ class AdminPanelProvider extends PanelProvider
             )->plugins([
                 FilamentGeneralSettingsPlugin::make()
                     // ->canAccess(fn() => auth()->user()->id === 1)
-                    ->setSort(3)
+                    ->setSort(4)
                     ->setIcon('heroicon-o-cog')
                     ->setNavigationGroup('Settings')
                     ->setTitle('General Settings')
