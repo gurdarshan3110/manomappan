@@ -14,6 +14,10 @@ Route::name('pages.')->group(function () {
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
     Route::get('/forgot-password', [PageController::class, 'forgotPassword'])->name('forgot_password');
     Route::get('/payment', [PageController::class, 'payment'])->name('payment');
+
+    // Career related routes
+    Route::get('/careers/{cluster}', [PageController::class, 'cluster'])->name('cluster');
+    Route::get('/careers/{cluster}/{career}', [PageController::class, 'career'])->name('career');
 });
 
 Route::name('auth.')->group(function () {
