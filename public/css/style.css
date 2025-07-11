@@ -1,28 +1,37 @@
-
 /* Fonts */
 :root {
-  --default-font: "Poppins",  sans-serif;
-  --heading-font: "Poppins",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Poppins", sans-serif;
+  --heading-font: "Poppins", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color:#FFECEC; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #005870; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: ##005870; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+:root {
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #FFECEC;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #005870;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: ##005870;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
 
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #000;  /* The default color of the main navmenu links */
-  --nav-hover-color: #db3c7a; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #3a3939; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #db3c7a; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #000;
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #db3c7a;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #3a3939;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #db3c7a;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 body {
@@ -45,26 +54,27 @@ h6 {
   font-family: var(--heading-font);
 }
 
-ul{
-  margin:0;
+ul {
+  margin: 0;
   padding: 0;
 }
 
-li{
-  margin:0;
+li {
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
-a{
+
+a {
   text-decoration: none;
-   font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 p {
   color: #1A1818;
   font-size: 18px;
-   font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .navbar .dropdown-toggle::after {
@@ -80,7 +90,7 @@ p {
   padding: 10px 32px;
   color: #005870;
   font-size: 15px;
-  font-weight:400;
+  font-weight: 400;
   outline: none;
   font-family: var(--default-font);
   border-radius: 28px;
@@ -96,7 +106,7 @@ a.nav-link.active {
   background: #FFCBCB;
 }
 
-a.nav-link:hover{
+a.nav-link:hover {
   color: #fff !important;
   background: #0077AB;
 }
@@ -156,16 +166,16 @@ a.btn.btn-dark:hover {
   background: #0077AB;
 }
 
-button.btn.btn-light:hover{
+button.btn.btn-light:hover {
   background: #D2F5FF;
 }
 
-a.btn.btn-light:hover{
+a.btn.btn-light:hover {
   background: #D2F5FF;
 }
 
-a.forgot-pswd-label:hover{
-  color:#0077AB;
+a.forgot-pswd-label:hover {
+  color: #0077AB;
 }
 
 .payment-processed {
@@ -227,37 +237,37 @@ a.forgot-pswd-label:hover{
   padding: 32px;
   background: #EFFCFF;
   border-radius: 12px;
-  height:100%;
+  height: 100%;
 }
 
 
 @media (min-width: 992px) {
   .navbar .nav-item .dropdown-menu {
-      display: block;
-      border: none;
-      margin-top: 0;
-      top: 150%;
-      opacity: 0;
-      visibility: hidden;
-      transition: .5s;
+    display: block;
+    border: none;
+    margin-top: 0;
+    top: 150%;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
   }
 
   .navbar .nav-item:hover .dropdown-menu {
-      top: 100%;
-      visibility: visible;
-      transition: .5s;
-      opacity: 1;
+    top: 100%;
+    visibility: visible;
+    transition: .5s;
+    opacity: 1;
   }
 }
 
 @media (max-width: 991.98px) {
-  .navbar-light .navbar-nav .nav-link  {
-      margin-right: 0;
-      padding: 5px 0;
+  .navbar-light .navbar-nav .nav-link {
+    margin-right: 0;
+    padding: 5px 0;
   }
 
   .navbar-light .navbar-nav {
-      border-top: 1px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
   }
 }
 
@@ -274,8 +284,8 @@ a.forgot-pswd-label:hover{
   color: #FF7B7B;
 }
 
-.journey img{
-  width:100%;
+.journey img {
+  width: 100%;
 }
 
 .register h3 {
@@ -303,7 +313,7 @@ a.forgot-pswd-label:hover{
   margin-bottom: 4px;
 }
 
- a.btn.btn-dark, button.btn-dark {
+a.btn.btn-dark {
   background: var(--heading-color);
   font-size: 16px;
   font-weight: 600;
@@ -328,7 +338,7 @@ a.btn.btn-light {
   border-radius: 28px;
   padding: 10px 32px;
   background: #fff;
-  color:#005870;
+  color: #005870;
 }
 
 .register-opt2 {
@@ -350,6 +360,7 @@ a.btn.btn-light {
   background: #fff;
   border-radius: 8px;
 }
+
 .register-opt2 ul {
   margin: 0;
   padding: 0;
@@ -357,7 +368,7 @@ a.btn.btn-light {
   gap: 8px;
 }
 
-.register-opt2 ul li a{
+.register-opt2 ul li a {
   text-decoration: none;
 }
 
@@ -371,7 +382,7 @@ footer {
   background: var(--default-color);
   border-radius: 16px;
   padding: 36px 32px;
-  margin-top:25px;
+  margin-top: 25px;
 }
 
 .ft-logo {
@@ -382,7 +393,7 @@ footer {
 footer p {
   color: #3E0505;
   margin: 0;
-  font-size:16px;
+  font-size: 16px;
 }
 
 ul.social-links li {
@@ -438,9 +449,9 @@ ul.address-details li {
   flex-direction: column;
   gap: 8px;
 }
+
 .career-plan form label {
-  display: flex
-;
+  display: flex;
   align-items: center;
   padding: 16px;
   border-radius: 8px;
@@ -450,18 +461,22 @@ ul.address-details li {
   margin-bottom: 0;
   justify-content: space-between;
 }
+
 .career-plan form label:hover {
   background-color: D2F5FF;
 }
+
 .career-plan form label:has(input[type=radio]:checked) {
   background: #D2F5FF;
 }
+
 .career-plan form input[type=radio] {
   position: relative;
   width: 0;
   margin-bottom: 0;
-  margin-right:24px;
+  margin-right: 24px;
 }
+
 .career-plan form input[type=radio]::after {
   content: "";
   position: absolute;
@@ -469,21 +484,23 @@ ul.address-details li {
   border-radius: 50%;
   border: 1px solid #005870;
   transition: opacity 0.3s;
-  width:24px;
-  height:24px;
+  width: 24px;
+  height: 24px;
 
 }
+
 .career-plan form input[type=radio]:checked::after {
   background: #D2F5FF;
   border: 4px solid #005870;
-  
+
 }
 
 .career-plan form label p {
   font-size: 14px;
   color: #005870;
-  margin-bottom:0;
+  margin-bottom: 0;
 }
+
 .career-plan form label p span {
   display: block;
   font-weight: 700;
@@ -504,8 +521,7 @@ ul.address-details li {
 }
 
 .career-plan-right {
-  display: flex
-;
+  display: flex;
   align-items: center;
   gap: 16px;
   color: #005870;
@@ -536,7 +552,7 @@ ul.address-details li {
   margin-bottom: 16px;
 }
 
-.total-amount p{
+.total-amount p {
   margin-bottom: 0;
 }
 
@@ -579,8 +595,7 @@ nav.navbar.navbar-expand-lg.bg-white.navbar-light.language-nav {
   padding: 0px 36px;
   border-radius: 16px;
   height: 100%;
-  display: flex
-;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
@@ -601,6 +616,7 @@ nav.navbar.navbar-expand-lg.bg-white.navbar-light.language-nav {
   border-radius: 30px;
   padding-left: 16px;
 }
+
 .career-counselling-lt p {
   font-size: 20px;
   width: 75%;
@@ -625,7 +641,7 @@ nav.navbar.navbar-expand-lg.bg-white.navbar-light.language-nav {
   content: url(../images/stats1.png);
   left: 0;
   width: 100%;
-  z-index:-1;
+  z-index: -1;
   overflow: hidden;
 }
 
@@ -672,10 +688,10 @@ nav.navbar.navbar-expand-lg.bg-white.navbar-light.language-nav {
 
 
 .pricing-table {
-	background: #fff;
-	box-shadow: 0px 1px 10px -6px rgba(0, 0, 0, .15);
-	padding: 2rem;
-	border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 1px 10px -6px rgba(0, 0, 0, .15);
+  padding: 2rem;
+  border-radius: 4px;
 
 }
 
@@ -717,7 +733,7 @@ section.career-counselling {
 .our-plan table tr td:last-child {
   background: #D2F5FF;
   text-align: left;
-  color:#005870;
+  color: #005870;
 }
 
 .our-plan table,
@@ -730,10 +746,12 @@ section.career-counselling {
 
 .our-plan table {
   border-collapse: separate;
-  border-spacing: 4px; /* Adjust gap as needed */
+  border-spacing: 4px;
+  /* Adjust gap as needed */
 }
 
-.our-plan th, .our-plan td {
+.our-plan th,
+.our-plan td {
   padding: 25px;
   font-weight: 400;
   font-size: 14px;
@@ -754,8 +772,8 @@ th.table-heading td h3 {
 }
 
 .our-plan table th h4 {
-    font-size: 20px;
-    color: #1A1818;
+  font-size: 20px;
+  color: #1A1818;
 }
 
 td.price-text {
@@ -789,14 +807,14 @@ section.students-say {
   position: absolute;
 } */
 
-section.students-say h3{
+section.students-say h3 {
   color: #fff;
   font-weight: 700;
   font-size: 32px;
   line-height: 48px;
 }
 
-section.students-say p{
+section.students-say p {
   color: #fff;
 }
 
@@ -804,7 +822,7 @@ section.students-say p{
   border-radius: 11px;
   padding: 24px;
   background: #fff;
-  margin-top:36px;
+  margin-top: 36px;
 }
 
 .students-card h4 {
@@ -812,7 +830,7 @@ section.students-say p{
   font-size: 18px;
   line-height: 24px;
   color: #000000;
-  margin-bottom:16px;
+  margin-bottom: 16px;
 }
 
 
@@ -843,8 +861,8 @@ section.students-say p{
   margin: 24px 0 36px;
 }
 
-.works-card{
-  padding:36px;
+.works-card {
+  padding: 36px;
   position: relative;
 
 }
@@ -865,28 +883,29 @@ section.students-say p{
 
 .works-card2 {
   background: #F7F7F7 !important;
-  border-radius:0px !important;
+  border-radius: 0px !important;
 
 }
+
 .works-card {
   background: #D2F5FF;
   padding: 36px;
   border-radius: 16px 0px 0 16px;
 }
 
-.works-inner .btn-prev{
-  background:url(../images/prev-icon.png) no-repeat !important;
+.works-inner .btn-prev {
+  background: url(../images/prev-icon.png) no-repeat !important;
   left: 30%;
-  width:80px;
-  height:80px;
+  width: 80px;
+  height: 80px;
   top: 45% !important;
 }
 
-.works-inner .btn-next{
-  background:url(../images/next-icon.png) no-repeat !important;
+.works-inner .btn-next {
+  background: url(../images/next-icon.png) no-repeat !important;
   right: 30%;
-  width:80px;
-  height:80px;
+  width: 80px;
+  height: 80px;
   top: 45% !important;
 }
 
@@ -901,7 +920,7 @@ section.students-say p{
   margin-top: 24px;
 }
 
-.join-manomaapan{
+.join-manomaapan {
   margin: 96px 0;
 }
 
@@ -938,21 +957,23 @@ section.faqs h3 {
 }
 
 .accordion-button::after {
-  background: url("../images/plus-icon.png") ;
+  background: url("../images/plus-icon.png");
   transition: all 0.5s;
   width: 10px;
   height: 10px;
 }
+
 .accordion-button:not(.collapsed)::after {
   background: url("../images/minus-icon.png");
   width: 10px;
   height: 10px;
 }
+
 .accordion-button::after {
   transition: all 0.5s;
 }
 
-button.accordion-button.collapsed{
+button.accordion-button.collapsed {
   box-shadow: none !important;
 }
 
@@ -963,11 +984,11 @@ button.accordion-button.collapsed{
   color: #005870;
 }
 
-.faqs p{
+.faqs p {
   font-weight: 300;
   font-size: 14px;
   line-height: normal;
-  color:#005870;
+  color: #005870;
   margin-bottom: 0;
 }
 
@@ -979,7 +1000,7 @@ button.accordion-button.collapsed{
   border-bottom: 1px solid #005870;
 }
 
-.faqs .accordion-button:focus{
+.faqs .accordion-button:focus {
   box-shadow: none !important;
 }
 
@@ -999,17 +1020,17 @@ section.our-plan h3 {
 }
 
 .career-compass-card {
-    border-radius: 7px;
-    background: var(--Blue-wash, #D2F5FF);
-    padding: 16px;
+  border-radius: 7px;
+  background: var(--Blue-wash, #D2F5FF);
+  padding: 16px;
 }
 
-section.our-plan.our-plan-mob{
-  display:none;
+section.our-plan.our-plan-mob {
+  display: none;
 }
 
 .btn-prev.btn-prev-phone {
-    display: none;
+  display: none;
 }
 
 
@@ -1017,13 +1038,14 @@ section.our-plan.our-plan-mob{
   box-shadow: none;
 }
 
-.my-language{
+.my-language {
   display: none;
 }
 
 .why-choose a.btn.btn-light {
   margin-top: 32px;
 }
+
 /* profile menu */
 
 .profile {
@@ -1033,8 +1055,7 @@ section.our-plan.our-plan-mob{
   width: 76px;
   height: 46px;
   border-radius: 30px;
-  display: flex
-;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
@@ -1071,8 +1092,9 @@ section.our-plan.our-plan-mob{
   left: 0;
 
 }
+
 /* menu (the right one) */
-  
+
 .menu {
   position: absolute;
   top: 100%;
@@ -1110,8 +1132,7 @@ section.our-plan.our-plan-mob{
 
 .menu ul {
   position: relative;
-  display: flex
-;
+  display: flex;
   flex-direction: column;
   z-index: 10;
   background: #F1F9FB;
@@ -1143,36 +1164,55 @@ section.our-plan.our-plan-mob{
   border-bottom: 1px solid #7BAAB7;
 }
 
+
+.nav .nav-item button.active {
+  background-color: transparent;
+  color: var(--bs-danger) !important;
+}
+
+.nav .nav-item button.active::after {
+  content: "";
+  border-right: 4px solid var(--bs-danger);
+  height: 100%;
+  position: absolute;
+  right: -1px;
+  top: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+
+
 @media screen and (max-width:1399px) {
 
-.journey h1 {
-  font-size: 36px;
-  line-height: normal;
-  padding: 40px 20px 60px;
-}
+  .journey h1 {
+    font-size: 36px;
+    line-height: normal;
+    padding: 40px 20px 60px;
+  }
 
-.register h3 {
-  font-size: 24px;
-}
+  .register h3 {
+    font-size: 24px;
+  }
 
-.register {
-  padding: 60px 20px 0;
-}
+  .register {
+    padding: 60px 20px 0;
+  }
 
-.register-opt2 h4 {
-  font-size: 16px;
-}
+  .register-opt2 h4 {
+    font-size: 16px;
+  }
 
-.register-opt2 ul li a span {
-  font-size: 14px;}
+  .register-opt2 ul li a span {
+    font-size: 14px;
+  }
 
   .register-opt2 {
     padding: 16px;
   }
 
-  .register input{
+  .register input {
     margin-bottom: 18px;
-  } 
+  }
 
   .journey.payment-left h2 {
     font-size: 36px;
@@ -1180,101 +1220,104 @@ section.our-plan.our-plan-mob{
     padding: 40px 20px 60px;
   }
 
-  .career-plan h3{
+  .career-plan h3 {
     font-size: 24px;
   }
 
-  .career-plan{
+  .career-plan {
     padding: 60px 20px 0;
   }
 
 
-.career-plan form label p {
-  font-size: 14px;}
+  .career-plan form label p {
+    font-size: 14px;
+  }
 
   .career-plan-right {
-    gap: 8px;}
+    gap: 8px;
+  }
 
-  .career-plan-left{
-  gap:8px;
-}
+  .career-plan-left {
+    gap: 8px;
+  }
 
-.career-plan-left{
-  display: flex;
-  width: 70%;
-}
+  .career-plan-left {
+    display: flex;
+    width: 70%;
+  }
 
-.payment-processed-inner h2 {
-  font-size: 28px;
+  .payment-processed-inner h2 {
+    font-size: 28px;
 
-}
-
-
-.navbar-light .navbar-nav .nav-link {
-  padding: 10px 20px;
-  font-size: 14px;
-}
-
-.banner-left {
-  padding: 0px 20px;
-
-}
-
-.banner-left h2 {
-  font-size: 28px;
-  margin: 20px 0;
-}
-
-a.btn.btn-light {
-  font-size: 12px;
-  padding: 6px 14px;
-}
-
-a.btn.btn-dark {
-  font-size: 12px;
-   padding: 6px 14px;
-}
+  }
 
 
-.why-choose-box {
-  padding: 14px;
-}
+  .navbar-light .navbar-nav .nav-link {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 
-.why-choose-box h4 {
-  font-size: 18px;
-  margin: 30px 0 16px;
-}
+  .banner-left {
+    padding: 0px 20px;
 
-.why-choose-box p {
-  font-size: 14px;
-}
+  }
 
-.career-counselling-rt {
-  padding: 14px;
-}
+  .banner-left h2 {
+    font-size: 28px;
+    margin: 20px 0;
+  }
 
-.career-counselling-lt p {
-  font-size: 18px;
-  width: 100%;
-}
+  a.btn.btn-light {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
 
-.career-counselling-rt h2 {
-  font-size: 54px;
-  line-height: 55px;
-}
-.slider2 {
-  padding: 20px;
-}
+  a.btn.btn-dark {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
 
-section.students-say {
-  padding: 135px 0 185px 30px;
 
-}
+  .why-choose-box {
+    padding: 14px;
+  }
 
-.payment-processed-inner a.btn.btn-dark{
-  font-size:12px;
-  display: block;
-}
+  .why-choose-box h4 {
+    font-size: 18px;
+    margin: 30px 0 16px;
+  }
+
+  .why-choose-box p {
+    font-size: 14px;
+  }
+
+  .career-counselling-rt {
+    padding: 14px;
+  }
+
+  .career-counselling-lt p {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .career-counselling-rt h2 {
+    font-size: 54px;
+    line-height: 55px;
+  }
+
+  .slider2 {
+    padding: 20px;
+  }
+
+  section.students-say {
+    padding: 135px 0 185px 30px;
+
+  }
+
+  .payment-processed-inner a.btn.btn-dark {
+    font-size: 12px;
+    display: block;
+  }
 }
 
 @media screen and (max-width:991.98px) {
@@ -1284,175 +1327,177 @@ section.students-say {
 
   }
 
-  .career-plan h3{
+  .career-plan h3 {
     font-size: 20px;
     margin: 16px 0;
-  } 
+  }
 
-.register h3 {
-  font-size: 20px;
-}
+  .register h3 {
+    font-size: 20px;
+  }
 
-.journey h1 {
-  font-size: 24px;}
-
-
-.register input {
-  font-size: 12px;
-}
-
-.register-opt2 h4 {
-  font-size: 14px;
-}
-
-.register-opt2 ul li {
-  text-align: center;
-  padding:0px;
-}
-
-.register-opt2 ul li a span {
-  padding: 0;
-}
-
-.register-opt2 {
-  padding:16px;
-}
-
-section.sign-up.coming-soon h2 {
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 72px;
-  padding: 40px 0;
-}
-
-section.sign-up.coming-soon h2 {
-  font-size: 48px;
-  line-height: 1;
-  padding: 40px 0;
-}
-
-.payment-option a {
-  margin: 20px 0;
-}
-
-.career-plan-left {
-  display: block;
-  width: 60%;
-}
-
-.career-plan form label p span{
-  margin:8px 0;
-}
-
-.payment-processed {
-  margin-top: 20px;
-}
-
-.payment-processed-inner h2{
-  font-size: 20px;
-}
-
-.payment-processed-inner a.btn.btn-dark {
-  text-align: left;
-}
-
-.career-plan{
-  padding:0;
-}
-
-.banner-left {
-  padding: 20px;
-  margin-bottom: 8px;
-  height: auto;
-}
-
-.why-choose h3 {
-  font-size: 24px;
-
-}
-
-.why-choose-box {
-  padding: 24px 32px;
-  margin-bottom: 10px;
-  height: auto;
-}
-
-section.career-counselling {
-  padding: 0;
-}
-
-.career-counselling-rt {
-  padding: 24px;
-  margin-bottom: 16px;
-  height: auto;
-}
-
-.career-counselling-rt::before {
-  overflow: hidden;
-  height: 100%;
-}
-
-.career-counselling-lt {
-  padding-top: 0;
-}
-
-a.nav-link:hover{
-  background: transparent;
-  padding: 0 !important;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  padding: 0;
-  font-size: 12px;
-  margin: 10px 0 0;
-}
-
-.language-nav a {
-  font-size: 14px;
-}
-.my-language{
-  display: block;
-}
-
-.language-nav .navbar-collapse.collapse {
-  display: none;
-}
-
-.language-nav button.navbar-toggler {
-  display: none;
-}
-
-select.my-language.selectpicker {
-  background: #FFCBCB url(../images/toggle2.png) no-repeat 80% 52%;
-  border: none;
-  border-radius: 28px;
-  font-size: 14px;
-  width: 163px;
-  text-align: center;
-  height: 42px;
-}
+  .journey h1 {
+    font-size: 24px;
+  }
 
 
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance:none;
-  appearance:none;
-}
+  .register input {
+    font-size: 12px;
+  }
 
-select.my-language.selectpicker:focus {
-  border: none;
-  outline: none;
-  box-shadow: none; 
-}
+  .register-opt2 h4 {
+    font-size: 14px;
+  }
 
-button.navbar-toggler {
-  display: none;
-}
+  .register-opt2 ul li {
+    text-align: center;
+    padding: 0px;
+  }
 
-button.navbar-toggler {
-  display: none;
-}
+  .register-opt2 ul li a span {
+    padding: 0;
+  }
+
+  .register-opt2 {
+    padding: 16px;
+  }
+
+  section.sign-up.coming-soon h2 {
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    padding: 40px 0;
+  }
+
+  section.sign-up.coming-soon h2 {
+    font-size: 48px;
+    line-height: 1;
+    padding: 40px 0;
+  }
+
+  .payment-option a {
+    margin: 20px 0;
+  }
+
+  .career-plan-left {
+    display: block;
+    width: 60%;
+  }
+
+  .career-plan form label p span {
+    margin: 8px 0;
+  }
+
+  .payment-processed {
+    margin-top: 20px;
+  }
+
+  .payment-processed-inner h2 {
+    font-size: 20px;
+  }
+
+  .payment-processed-inner a.btn.btn-dark {
+    text-align: left;
+  }
+
+  .career-plan {
+    padding: 0;
+  }
+
+  .banner-left {
+    padding: 20px;
+    margin-bottom: 8px;
+    height: auto;
+  }
+
+  .why-choose h3 {
+    font-size: 24px;
+
+  }
+
+  .why-choose-box {
+    padding: 24px 32px;
+    margin-bottom: 10px;
+    height: auto;
+  }
+
+  section.career-counselling {
+    padding: 0;
+  }
+
+  .career-counselling-rt {
+    padding: 24px;
+    margin-bottom: 16px;
+    height: auto;
+  }
+
+  .career-counselling-rt::before {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .career-counselling-lt {
+    padding-top: 0;
+  }
+
+  a.nav-link:hover {
+    background: transparent;
+    padding: 0 !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    padding: 0;
+    font-size: 12px;
+    margin: 10px 0 0;
+  }
+
+  .language-nav a {
+    font-size: 14px;
+  }
+
+  .my-language {
+    display: block;
+  }
+
+  .language-nav .navbar-collapse.collapse {
+    display: none;
+  }
+
+  .language-nav button.navbar-toggler {
+    display: none;
+  }
+
+  select.my-language.selectpicker {
+    background: #FFCBCB url(../images/toggle2.png) no-repeat 80% 52%;
+    border: none;
+    border-radius: 28px;
+    font-size: 14px;
+    width: 163px;
+    text-align: center;
+    height: 42px;
+  }
+
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+  }
+
+  select.my-language.selectpicker:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  button.navbar-toggler {
+    display: none;
+  }
+
+  button.navbar-toggler {
+    display: none;
+  }
 }
 
 @media screen and (max-width:767px) {
@@ -1463,151 +1508,152 @@ button.navbar-toggler {
     align-items: end;
     gap: 10px;
     padding: 0;
-}
-  
-
-.journey h1 {
-  font-weight: 400;
-  font-size: 14px;
-  line-height:normal;
-  padding: 0;
-  color: #005870;
-}
-
-.journey img {
-  width: 136px;
-}
-
-.register {
-  padding: 16px 0px 0;
-}
-
-.register h3 {
-  font-size: 20px;
-  margin-bottom: 24px;
-}
-
-.register input{
-  margin-bottom:16px;
-}
-
-.register a.btn.btn-dark{
-  font-weight: 400;
-}
-
-.register-opt2 ul li a span{
-  display: none;
-}
-
-.register-opt2 {
-  margin-top: 24px;
-}
-
-a.nav-link.active {
-  background: transparent;
-  color: #005870 !important;
-}
-
-ul.navbar-nav.ms-auto {
-  margin-bottom: 10px;
-}
-
-section.sign-up.coming-soon {
-  min-height: inherit;
-
-}
-
-.register.forgot-pswd-form {
-  min-height: inherit;
-}
-
-section.sign-up.coming-soon h2 {
-  font-weight: 400;
-  font-size: 42px;
-  line-height: 48px;
-  padding: 60px 0 24px;
-}
-
-section.sign-up.coming-soon p {
-  font-size: 16px;
-
-}
-
-.register.forgot-pswd-form h3{
-  font-size: 36px;
-}
-
-.ft-logo {
-  margin-bottom: 16px;
-}
-
-ul.social-links {
-  margin: 48px 0 36px;
-}
-
-footer p {
-  color: #3E0505;
-  margin: 14px 0 0 0;
-  font-size: 14px;
-}
-
-footer {
-  padding: 36px 16px;
-}
-
-.journey.payment-left h2 {
-  font-weight: 400;
-  font-size: 14px;
-  padding:15px 0;
-  color: #005870;
-  line-height: normal;
-}
-
-a.forgot-pswd-label {
-  font-size: 14px;
-  margin-top: 16px;
-}
-
-section.sign-up.login {
-  margin-bottom: 0;
-}
-
-.register input {
-  font-size: 16px;
-}
-
-.career-plan-left{
-  display: flex;
-}
-
-.career-plan-right {
-  gap: 10px;
-}
-
-.career-plan form label p span {
-  margin:0;
-}
-
-.career-plan a.btn.btn-dark {
-  display: block;
-}
+  }
 
 
-.career-plan-left {
-  width: 68%;
-}
+  .journey h1 {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    padding: 0;
+    color: #005870;
+  }
 
-.btn-prev {
-  position: absolute;
-  left: 40%;
-  z-index: 9;
-  bottom: -40px;
-  top: unset;
-  right: unset;
-}
+  .journey img {
+    width: 136px;
+  }
 
-.join-manomaapan-lt {
-  display: block;}
+  .register {
+    padding: 16px 0px 0;
+  }
+
+  .register h3 {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .register input {
+    margin-bottom: 16px;
+  }
+
+  .register a.btn.btn-dark {
+    font-weight: 400;
+  }
+
+  .register-opt2 ul li a span {
+    display: none;
+  }
+
+  .register-opt2 {
+    margin-top: 24px;
+  }
+
+  a.nav-link.active {
+    background: transparent;
+    color: #005870 !important;
+  }
+
+  ul.navbar-nav.ms-auto {
+    margin-bottom: 10px;
+  }
+
+  section.sign-up.coming-soon {
+    min-height: inherit;
+
+  }
+
+  .register.forgot-pswd-form {
+    min-height: inherit;
+  }
+
+  section.sign-up.coming-soon h2 {
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 48px;
+    padding: 60px 0 24px;
+  }
+
+  section.sign-up.coming-soon p {
+    font-size: 16px;
+
+  }
+
+  .register.forgot-pswd-form h3 {
+    font-size: 36px;
+  }
+
+  .ft-logo {
+    margin-bottom: 16px;
+  }
+
+  ul.social-links {
+    margin: 48px 0 36px;
+  }
+
+  footer p {
+    color: #3E0505;
+    margin: 14px 0 0 0;
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 36px 16px;
+  }
+
+  .journey.payment-left h2 {
+    font-weight: 400;
+    font-size: 14px;
+    padding: 15px 0;
+    color: #005870;
+    line-height: normal;
+  }
+
+  a.forgot-pswd-label {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  section.sign-up.login {
+    margin-bottom: 0;
+  }
+
+  .register input {
+    font-size: 16px;
+  }
+
+  .career-plan-left {
+    display: flex;
+  }
+
+  .career-plan-right {
+    gap: 10px;
+  }
+
+  .career-plan form label p span {
+    margin: 0;
+  }
+
+  .career-plan a.btn.btn-dark {
+    display: block;
+  }
+
+
+  .career-plan-left {
+    width: 68%;
+  }
+
+  .btn-prev {
+    position: absolute;
+    left: 40%;
+    z-index: 9;
+    bottom: -40px;
+    top: unset;
+    right: unset;
+  }
+
+  .join-manomaapan-lt {
+    display: block;
+  }
 
   .join-manomaapan-inner {
     padding: 32px;
@@ -1615,159 +1661,162 @@ section.sign-up.login {
 
   .join-manomaapan-lt h3 {
     margin: 33px 0 48px;
-}
+  }
 
-section.faqs .accordion {
-  padding: 32px 8px;
-}
+  section.faqs .accordion {
+    padding: 32px 8px;
+  }
 
 
-section.faqs h3 {
-  font-size: 24px;
+  section.faqs h3 {
+    font-size: 24px;
 
-}
-section.students-say {
-  background: url(../images/phone-gradient-bg.png) no-repeat;
-  background-size: cover;
-  padding: 75px 0 210px;
-}
+  }
 
-.our-plan table{
-  display: none;
-}
+  section.students-say {
+    background: url(../images/phone-gradient-bg.png) no-repeat;
+    background-size: cover;
+    padding: 75px 0 210px;
+  }
 
-section.students-say h3 {
-  font-size: 24px;
-  line-height: 32px;
-}
-
-section.our-plan h3 {
-  font-size: 24px;
-  line-height: 48px;
-}
-
-section.works h3{
-  font-size: 24px;
-  line-height: 48px;
-}
-
-.works p {
-  margin: 0px 0 36px;
-}
-
-.join-manomaapan {
-  margin: 48px 0;
-}
-
-a.btn.btn-dark {
-  font-size: 12px;
-  padding: 10px 32px;
-}
-
-a.btn.btn-light {
-  font-size: 12px;
-  padding: 10px 32px;
-}
-
-.banner-left .col-12 {
-  flex-direction: column-reverse;
-  display: flex;
-  gap: 12px;
-  align-items: self-start;
-}
-
-.banner-left h2 {
-  font-size: 24px;
-}
-
-.banner-left p {
-  font-size: 14px;
-}
-
-section.our-plan.our-plan-mob{
-  display:block;
-  padding: 0;
-}
-
-section.our-plan {
+  .our-plan table {
     display: none;
-}
+  }
 
-.career-compass-price {
-    display: flex
-;
+  section.students-say h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  section.our-plan h3 {
+    font-size: 24px;
+    line-height: 48px;
+  }
+
+  section.works h3 {
+    font-size: 24px;
+    line-height: 48px;
+  }
+
+  .works p {
+    margin: 0px 0 36px;
+  }
+
+  .join-manomaapan {
+    margin: 48px 0;
+  }
+
+  a.btn.btn-dark {
+    font-size: 12px;
+    padding: 10px 32px;
+  }
+
+  a.btn.btn-light {
+    font-size: 12px;
+    padding: 10px 32px;
+  }
+
+  .banner-left .col-12 {
+    flex-direction: column-reverse;
+    display: flex;
+    gap: 12px;
+    align-items: self-start;
+  }
+
+  .banner-left h2 {
+    font-size: 24px;
+  }
+
+  .banner-left p {
+    font-size: 14px;
+  }
+
+  section.our-plan.our-plan-mob {
+    display: block;
+    padding: 0;
+  }
+
+  section.our-plan {
+    display: none;
+  }
+
+  .career-compass-price {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-}
+  }
 
-.career-compass-price a.btn.btn-dark.w-100 {
+  .career-compass-price a.btn.btn-dark.w-100 {
     width: 60% !important;
-}
+  }
 
-section.our-plan.our-plan-mob P {
+  section.our-plan.our-plan-mob P {
     font-size: 14px;
-        margin-top: 24px;
-        color:#005870;
-}
+    margin-top: 24px;
+    color: #005870;
+  }
 
-.career-compass-card h4 {
+  .career-compass-card h4 {
     color: var(--Teal, #005870);
     font-size: 24px;
     font-weight: 700;
     line-height: 28px;
-}
+  }
 
-.career-compass-price h4 {
+  .career-compass-price h4 {
     color: var(--Teal, #005870);
     font-size: 28px;
     font-weight: 500;
     line-height: 28px;
-}
+  }
 
-.career-text {
-    display: flex
-;
+  .career-text {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-}
+  }
 
-.works-card svg, path{
+  .works-card svg,
+  path {
     fill: #ED7C7C;
-}
+  }
 
-.works-card.works-card2 svg, path{
-  stroke: #ED7C7C;
-}
+  .works-card.works-card2 svg,
+  path {
+    stroke: #ED7C7C;
+  }
 
-.btn-prev.btn-prev-phone {
+  .btn-prev.btn-prev-phone {
     display: block;
-}
+  }
 
-.btn-prev {
+  .btn-prev {
     display: none;
-}
+  }
 
-.career-compass-card:first-child{
-  margin-bottom: 16px;
-}
+  .career-compass-card:first-child {
+    margin-bottom: 16px;
+  }
 
-.swiper-pagination-bullet {
-  background: transparent !important;
-  border:1px solid #fff;
-  opacity:1 !important;
-}
+  .swiper-pagination-bullet {
+    background: transparent !important;
+    border: 1px solid #fff;
+    opacity: 1 !important;
+  }
 
-.swiper-pagination-bullet-active {
-  background: #fff !important; /* blue active bullet */
-  border:1px solid transparent;
-}
+  .swiper-pagination-bullet-active {
+    background: #fff !important;
+    /* blue active bullet */
+    border: 1px solid transparent;
+  }
 
-.swiper-container {
-  padding-bottom:60px; /* creates space for pagination */
-}
+  .swiper-container {
+    padding-bottom: 60px;
+    /* creates space for pagination */
+  }
 
-.swiper-pagination-bullet {
+  .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
     display: inline-block;
@@ -1775,11 +1824,11 @@ section.our-plan.our-plan-mob P {
     background: #000;
     opacity: 1;
     margin: 4px;
-}
+  }
 
-.swiper-pagination {
-  margin-top:24px !important;
-}
+  .swiper-pagination {
+    margin-top: 24px !important;
+  }
 
 
 }

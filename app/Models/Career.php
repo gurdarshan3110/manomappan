@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Career extends Model
@@ -26,6 +27,8 @@ class Career extends Model
         'seo_description',
         'meta_keywords'
     ];
+
+    protected $appends = ['thumbnail_url'];
 
     protected static function boot()
     {
@@ -63,5 +66,15 @@ class Career extends Model
             self::STATUS_PUBLISHED => __('Published'),
             self::STATUS_ARCHIVED => __('Archived'),
         ];
+    }
+
+    //if thumbail is not set, return a default image path
+    public function getThumbnailUrlAttribute()
+    {
+        if (empty($this->thumbnail)) {
+            return asset('images/blank-img.png');
+        }
+
+        return Storage::url($this->thumbnail);
     }
 }
