@@ -18,19 +18,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             @foreach($navigationMenu as $cluster)
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="{{ route('pages.cluster', $cluster['slug']) }}">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('pages.cluster', $cluster['slug']) }}">
                                         {{ $cluster['name'] }}
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        @foreach($cluster['careers'] as $career)
-                                            <li>
-                                                <a class="dropdown-item" href="{{ route('pages.career', ['cluster' => $cluster['slug'], 'career' => $career['slug']]) }}">
-                                                    {{ $career['title'] }}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
                                 </li>
                             @endforeach
                         </ul>
