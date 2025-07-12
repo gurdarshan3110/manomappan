@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CareerSectionRenderer;
 use App\Traits\HasNavigationMenu;
 use Illuminate\Http\Request;
 use App\Models\Package;
@@ -88,12 +89,21 @@ class PageController extends Controller
             }])
             ->firstOrFail();
 
+        // Get all rendered sections using our helper
+        $sections = CareerSectionRenderer::getAllSections($career);
+        
+        // Organize sections by type for easy access in the view
+        $sectionsByType = [];
+        foreach ($sections as $section) {
+            $sectionsByType[$section['type']] = $section;
+        }
+
         $meta = [
             'title' => $career->seo_title ?? $career->title,
             'description' => $career->seo_description,
             'keywords' => $career->meta_keywords,
         ];
 
-        return view('pages.career', compact('meta', 'career'));
+        return view('pages.career', compact('meta', 'career', 'sections', 'sectionsByType'));
     }
 }
