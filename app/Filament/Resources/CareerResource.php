@@ -28,6 +28,7 @@ class CareerResource extends Resource
                 Forms\Components\Section::make('Basic Information')
                     ->description('Enter the basic career details')
                     ->columns(2)
+                    ->collapsible()
                     ->schema([
                         Forms\Components\TextInput::make('title')
                             ->required()
@@ -66,44 +67,47 @@ class CareerResource extends Resource
 
                 Forms\Components\Section::make('Media')
                     ->description('Upload career images')
+                    ->collapsible()
+                    ->columns(2)
                     ->schema([
                         Forms\Components\FileUpload::make('thumbnail')
                             ->image()
-                            ->directory('careers')
-                            ->columnSpanFull(),
+                            ->directory('careers'),
                         Forms\Components\TextInput::make('thumbnail_alt')
                             ->maxLength(255)
                             ->placeholder('Enter image alt text'),
                     ]),
 
-                Forms\Components\Section::make('Career Sections')
-                    ->description('Add content sections for this career')
-                    ->schema([
-                        Forms\Components\Repeater::make('sections')
-                            ->relationship()
-                            ->schema([
-                                Forms\Components\TextInput::make('section_title')
-                                    ->required()
-                                    ->maxLength(255)
-                                    ->placeholder('Enter section title'),
-                                Forms\Components\RichEditor::make('section_content')
-                                    ->required()
-                                    ->placeholder('Enter section content'),
-                                Forms\Components\FileUpload::make('section_image')
-                                    ->image()
-                                    ->directory('career-sections'),
-                                Forms\Components\TextInput::make('section_order')
-                                    ->numeric()
-                                    ->required()
-                                    ->default(fn ($operation) => $operation === 'create' ? 1 : null),
-                            ])
-                            ->orderable('section_order')
-                            ->defaultItems(1)
-                            ->columnSpanFull(),
-                    ]),
+                // Forms\Components\Section::make('Career Sections')
+                //     ->description('Add content sections for this career')
+                //     ->schema([
+                //         Forms\Components\Repeater::make('sections')
+                //             ->relationship()
+                //             ->schema([
+                //                 Forms\Components\TextInput::make('section_title')
+                //                     ->required()
+                //                     ->maxLength(255)
+                //                     ->placeholder('Enter section title'),
+                //                 Forms\Components\RichEditor::make('section_content')
+                //                     ->required()
+                //                     ->placeholder('Enter section content'),
+                //                 Forms\Components\FileUpload::make('section_image')
+                //                     ->image()
+                //                     ->directory('career-sections'),
+                //                 Forms\Components\TextInput::make('section_order')
+                //                     ->numeric()
+                //                     ->required()
+                //                     ->default(fn ($operation) => $operation === 'create' ? 1 : null),
+                //             ])
+                //             ->orderable('section_order')
+                //             ->defaultItems(1)
+                //             ->columnSpanFull(),
+                //     ]),
 
                 Forms\Components\Section::make('Related Careers')
                     ->description('Link to related career paths')
+                    ->collapsible()
+                    ->collapsed()
                     ->schema([
                         Forms\Components\Select::make('relatedCareers')
                             ->multiple()
@@ -182,7 +186,7 @@ class CareerResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\SectionsRelationManager::class,
         ];
     }
 
