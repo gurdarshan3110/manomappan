@@ -22,7 +22,7 @@
                                 @if(!empty($stalwart['instagram_link']))
                                     <li>
                                         <a href="{{ $stalwart['instagram_link'] }}" target="_blank">
-                                            <span><img src="images/insta.png"></span>@{{ $stalwart['name'] }}
+                                            <span><img src="{{ asset('images/insta.png') }}"></span>@{{ $stalwart['name'] }}
                                         </a>
                                     </li>
                                 @endif
@@ -30,7 +30,7 @@
                                 @if(!empty($stalwart['facebook_link']))
                                     <li>
                                         <a href="{{ $stalwart['facebook_link'] }}" target="_blank">
-                                            <span><img src="images/facebook.png"></span>@{{ $stalwart['name'] }}
+                                            <span><img src="{{ asset('images/facebook.png') }}"></span>@{{ $stalwart['name'] }}
                                         </a>
                                     </li>
                                 @endif
@@ -38,7 +38,7 @@
                                 @if(!empty($stalwart['x_link']))
                                     <li>
                                         <a href="{{ $stalwart['x_link'] }}" target="_blank">
-                                            <span><img src="images/twitter.png"></span>@{{ $stalwart['name'] }}
+                                            <span><img src="{{ asset('images/twitter.png') }}"></span>@{{ $stalwart['name'] }}
                                         </a>
                                     </li>
                                 @endif
@@ -46,14 +46,14 @@
                                 @if(!empty($stalwart['linkedin_link']))
                                     <li>
                                         <a href="{{ $stalwart['linkedin_link'] }}" target="_blank">
-                                            <span><img src="images/linkedin.png"></span>@{{ $stalwart['name'] }}
+                                            <span><img src="{{ asset('images/linkedin.png') }}"></span>@{{ $stalwart['name'] }}
                                         </a>
                                     </li>
                                 @endif
                             </ul>
                         @endif
                         
-                        <p>{{ $stalwart['description'] }}</p>
+                        <p>{!! $stalwart['description'] !!}</p>
                     </div>
                 </div>
             @endforeach

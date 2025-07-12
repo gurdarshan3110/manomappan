@@ -6,7 +6,7 @@
                 @foreach($section['content']['challenges'] as $challenge)
                     <div class="section-box-c">
                         <h4>{{ $challenge['title'] }}</h4>
-                        <p>{{ $challenge['description'] }}</p>
+                        <p>{!! $challenge['description'] !!}</p>
                     </div>
                 @endforeach
             @endif
@@ -19,7 +19,7 @@
                 @foreach($section['content']['skill_set_required'] as $skill)
                     <div class="section-box">
                         <h4>{{ $skill['title'] }}</h4>
-                        <p>{{ $skill['description'] }}</p>
+                        <p>{!! $skill['description'] !!}</p>
                     </div>
                 @endforeach
             @endif

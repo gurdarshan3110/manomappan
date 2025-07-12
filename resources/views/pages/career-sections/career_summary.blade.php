@@ -4,7 +4,7 @@
         @foreach($section['content']['items'] as $item)
             <div class="section-box">
                 <h4>{{ $item['title'] }}</h4>
-                <p>{{ $item['description'] }}</p>
+                <p>{!! $item['description'] !!}</p>
             </div>
         @endforeach
     @else

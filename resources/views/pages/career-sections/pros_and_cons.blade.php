@@ -6,7 +6,7 @@
                 @foreach($section['content']['pros'] as $pro)
                     <div class="section-box">
                         <h4>{{ $pro['title'] }}</h4>
-                        <p>{{ $pro['description'] }}</p>
+                        <p>{!! $pro['description'] !!}</p>
                     </div>
                 @endforeach
             @endif
@@ -19,7 +19,7 @@
                 @foreach($section['content']['cons'] as $con)
                     <div class="section-box-c">
                         <h4>{{ $con['title'] }}</h4>
-                        <p>{{ $con['description'] }}</p>
+                        <p>{!! $con['description'] !!}</p>
                     </div>
                 @endforeach
             @endif

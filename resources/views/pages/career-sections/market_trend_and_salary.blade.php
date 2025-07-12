@@ -11,7 +11,7 @@
                 </h2>
                 <div id="marketCollapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="marketHeading{{ $index }}" data-bs-parent="#marketAccordion">
                     <div class="accordion-body">
-                        <p>{{ $item['description'] }}</p>
+                        <p>{!! $item['description'] !!}</p>
                     </div>
                 </div>
             </div>

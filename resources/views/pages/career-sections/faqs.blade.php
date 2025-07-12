@@ -11,7 +11,7 @@
                 </h2>
                 <div id="collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="heading{{ $index }}" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                        <p>{{ $faq['answer'] }}</p>
+                        <p>{!! $faq['answer'] !!}</p>
                     </div>
                 </div>
             </div>

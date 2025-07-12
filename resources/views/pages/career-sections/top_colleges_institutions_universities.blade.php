@@ -6,7 +6,7 @@
                 <div class="col-md-4">
                     <div class="section-box-c">
                         <h4>{{ $institution['name'] }}</h4>
-                        <p>{{ $institution['description'] }}</p>
+                        <p>{!! $institution['description'] !!}</p>
                     </div>
                 </div>
             @endforeach

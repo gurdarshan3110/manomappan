@@ -49,7 +49,7 @@
                                             <a href="#">
                                                 <input type="radio" id="table{{ $tabIndex }}" name="radio-group" {{ $tabIndex === 1 ? 'checked=""' : '' }} hidden="">
                                                 <label for="table{{ $tabIndex }}" class="nav-link {{ $tabIndex === 1 ? 'active' : '' }}" id="tab{{ $tabIndex }}-tab" data-bs-toggle="pill" data-bs-target="#tab{{ $tabIndex }}" role="tab" aria-controls="tab{{ $tabIndex }}" aria-selected="{{ $tabIndex === 1 ? 'true' : 'false' }}">
-                                                    {{ $section['title'] }} <img src="images/thumb-img.png" alt="">
+                                                    {{ $section['title'] }} <img src="{{ asset('images/thumb-img.png')}}" alt="">
                                                 </label>
                                             </a>
                                         </li>
@@ -60,7 +60,7 @@
                                         <a href="#">
                                             <input type="radio" id="table1" name="radio-group" checked="" hidden="">
                                             <label for="table1" class="nav-link active" id="tab1-tab" data-bs-toggle="pill" data-bs-target="#tab1" role="tab" aria-controls="tab1" aria-selected="true">
-                                                Career Information <img src="images/thumb-img.png" alt="">
+                                                Career Information <img src="{{ asset('images/thumb-img.png')}}" alt="">
                                             </label>
                                         </a>
                                     </li>
