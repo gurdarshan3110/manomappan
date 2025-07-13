@@ -1,0 +1,387 @@
+.welcome-inner {
+    padding:24px;
+    background: #FFECEC;
+    border-radius: 16px;
+}
+
+.welcome-inner h3 {
+    color: #FF7B7B;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.welcome-inner p {
+    color: #3E0505;
+    font-size: 16px;
+    font-weight:400;
+        width: 100%;
+        margin: 0;
+}
+
+
+
+.prsnl-career{
+  margin:16px 0;
+}
+
+.prsnl-career h5 {
+    color: #005870;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.prsnl-career p {
+    color: #005870;
+    font-size: 16px;
+    font-weight:400;
+        margin: 0;
+}
+
+.prsnl-career-left {
+    border-radius: 16px;
+    background: #F1F9FB;
+    padding: 20px 32px;
+}
+
+.prsnl-career-left a.btn.btn-light {
+    margin-top: 16px;
+}
+
+.aptitude {
+    display: flex;
+    gap: 24px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    margin-top: 16px;
+}
+
+.aptitude-left {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.start-now {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: end;
+}
+
+.aptitude-text h5 {
+    color:#1A1818;
+    font-size: 20px;
+    line-height: normal;
+    margin-bottom:4px;
+}
+
+.aptitude-text p {
+    color: #005870;
+    font-size: 14px;
+    line-height: normal;
+}
+
+.start-now span {
+    display: flex
+;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #005870;
+}
+
+.start-now a.btn.btn-light {
+    font-size: 16px;
+    color: #0D7A73;
+}
+
+.coming-sessions {
+    background: #D2F5FF;
+    padding: 20px 36px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.coming-sessions p {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+h5.session-heading {
+    margin: 24px 0 16px;
+}
+
+.career-calibration {
+    display: flex
+;
+    justify-content: space-between;
+    background: #D2F5FF;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    gap:20px;
+}
+
+.career-calibration-progress {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.progress-box {
+    border-radius: 17px;
+    border: 1px solid  #7BAAB7;
+    background:  #FFF;
+    width: 100%;
+    height: 17px;
+}
+
+
+.aptitude-text h5 span {
+    margin-left: 8px;
+}
+
+.career-report {
+    border-radius: 16px;
+    background: linear-gradient(90deg, #FFF 0%, #FFD3D3 100%);
+    padding: 8px 16px;
+    margin: 16px 0;
+    display: flex
+;
+    gap: 16px;
+}
+
+.career-report-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.career-report {
+    display: flex
+;
+    align-items: center;
+    gap: 16px;
+}
+
+.report-text h5 {
+    color: #3E0505;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+
+.report-text p {
+    color: #1A1818;
+    font-size: 16px;
+    font-weight:400;
+    line-height: normal;
+    margin: 0;
+}
+
+.career-report a.btn.mt-0 {
+    border-radius: 27px;
+    background: linear-gradient(90deg, #005870 0%, #FF7B7B 100%);
+    font-weight: 700;
+    color: #fff;
+    width: 180px;
+    padding: 10px 30px;
+}
+
+.join-session {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+}
+.guidance-bg {
+    padding: 20px 32px;
+    text-align: left;
+    background: #F1F9FB;
+    margin-top: 24px;
+}
+
+.prsnl-career-left.join-session-bg {
+    background: #D2F5FF;
+}
+
+.prsnl-career-left.join-session-bg h5 {
+        font-size: 36px;
+    }
+
+  a.btn.view-btn2 {
+    background: linear-gradient(90deg, #FF7B7B 0%, #BC0003 100%) !important;
+}  
+
+.welcome-inner a.btn.btn-dark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+  
+
+@media screen and (max-width:1399px) {
+
+.prsnl-career-left.join-session-bg h5 {
+    font-size: 28px;
+}
+
+  
+.coming-sessions p {
+    font-size: 16px;
+
+}
+
+.prsnl-career h5 {
+    font-size:20px;
+    line-height: 24px;
+}
+
+.career-report a.btn.mt-0 {
+    width: 180px;
+    padding: 10px 10px;
+}
+}
+
+@media screen and (max-width:1199px) {
+
+    .prsnl-career-left {
+        margin-top: 10px;
+    }
+
+a.btn.btn-dark {
+        width: max-content;
+        padding: 10px 32px;
+        font-size: 12px;
+    }
+
+    .coming-sessions p {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    a.btn.btn-light {
+        font-size: 12px;
+        padding: 10px 32px;
+    }
+
+}
+
+@media screen and (max-width:991.98px) {
+
+    a.btn.btn-dark {
+        width:max-content;
+        padding: 8px 30px;
+    }
+
+
+    a.btn.btn-light {
+        width:max-content;
+        padding: 8px 30px;
+    }
+
+    .welcome-inner h3 {
+        font-size: 34px;
+    }
+
+    .welcome-inner a.btn.btn-dark {
+        margin-top: 10px;
+    }
+
+    
+}
+@media screen and (max-width:767px) {
+
+.career-calibration {
+    gap: 5px;
+    flex-direction: column;
+}
+
+.aptitude-left {
+    gap: 15px;
+    align-items: start;
+}
+
+.prsnl-career-left, .coming-sessions {
+    padding: 20px;
+}
+
+.welcome-inner p {
+    font-size: 14px;
+}
+
+.welcome-inner h3 {
+    font-size: 24px;
+    line-height:28px;
+}
+
+.prsnl-career-left.join-session-bg h5 {
+    font-size: 18px;
+    line-height:normal;
+}
+
+.prsnl-career p {
+    font-size: 14px;
+}
+
+.start-now {
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.start-now a.btn.btn-light {
+    font-size: 12px;
+}
+
+.start-now a.btn.btn-dark {
+    font-size: 12px;
+}
+
+.aptitude-left img {
+    width: 60px;
+}
+
+.aptitude-left span img {
+    width: auto;
+}
+
+.career-report {
+    flex-direction: column;
+    gap: 15px;
+    align-items: end;
+}
+
+.career-report-inner {
+    align-items: start;
+    gap: 10px;
+}
+
+.report-text h5 {
+    font-size:18px;
+    line-height:24px;
+}
+
+.report-text p {
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.career-report a.btn.mt-0 {
+    font-size: 14px;
+    width: auto;
+    padding: 10px 30px;
+}
+
+.prsnl-career h5.session-heading.mt-0 {
+    margin-top: 20px !important;
+}
+}
