@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Test extends Model
 {
@@ -107,5 +109,46 @@ class Test extends Model
     public function getTotalUsageAttribute()
     {
         return $this->counter_counselor + $this->counter_counselee;
+    }
+
+    /**
+     * Get the packages that include this test.
+     */
+    public function packages(): BelongsToMany
+    {
+        return $this->belongsToMany(Package::class, 'package_has_tests')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Get the package-test relationships for this test.
+     */
+    public function packageHasTests(): HasMany
+    {
+        return $this->hasMany(PackageHasTest::class);
+    }
+
+    /**
+     * Get only active packages that include this test.
+     */
+    public function activePackages(): BelongsToMany
+    {
+        return $this->packages()->where('status', Package::STATUS_ACTIVE);
+    }
+
+    /**
+     * Get the total number of packages that include this test.
+     */
+    public function getPackagesCountAttribute(): int
+    {
+        return $this->packages()->count();
+    }
+
+    /**
+     * Get the total number of active packages that include this test.
+     */
+    public function getActivePackagesCountAttribute(): int
+    {
+        return $this->activePackages()->count();
     }
 }

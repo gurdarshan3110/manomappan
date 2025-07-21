@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PackageResource\Pages;
 use App\Filament\Resources\PackageResource\RelationManagers;
 use App\Models\Package;
+use App\Models\Test;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -77,6 +78,29 @@ class PackageResource extends Resource
                             ->placeholder('Enter package description')
                             ->columnSpanFull(),
                     ]),
+
+                Forms\Components\Section::make('Included Tests')
+                    ->description('Select tests that are included in this package')
+                    ->schema([
+                        Forms\Components\Select::make('tests')
+                            ->relationship('tests', 'display_name')
+                            ->multiple()
+                            ->searchable()
+                            ->preload()
+                            ->optionsLimit(50)
+                            ->getSearchResultsUsing(fn (string $search): array => Test::where('display_name', 'like', "%{$search}%")
+                                ->orWhere('name', 'like', "%{$search}%")
+                                ->limit(50)
+                                ->get()
+                                ->mapWithKeys(fn ($test) => [$test->id => "{$test->display_name} ({$test->language}) - {$test->name}"])
+                                ->toArray())
+                            ->getOptionLabelsUsing(fn (array $values): array => Test::whereIn('id', $values)
+                                ->get()
+                                ->mapWithKeys(fn ($test) => [$test->id => "{$test->display_name} ({$test->language}) - {$test->name}"])
+                                ->toArray())
+                            ->helperText('Select multiple tests to include in this package')
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 
@@ -104,6 +128,12 @@ class PackageResource extends Resource
                         Package::STATUS_INACTIVE => 'danger',
                         default => 'warning',
                     }),
+                Tables\Columns\TextColumn::make('tests_count')
+                    ->label('Tests Count')
+                    ->badge()
+                    ->color(fn (int $state): string => $state > 0 ? 'success' : 'gray')
+                    ->counts('tests')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('counsellor')
                     ->limit(40)
                     ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
@@ -182,7 +212,7 @@ class PackageResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\TestsRelationManager::class,
         ];
     }
 

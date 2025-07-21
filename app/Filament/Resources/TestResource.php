@@ -182,6 +182,12 @@ class TestResource extends Resource
                     ->badge()
                     ->color(fn (int $state): string => $state > 200 ? 'success' : ($state > 50 ? 'warning' : 'gray'))
                     ->sortable(),
+                Tables\Columns\TextColumn::make('packages_count')
+                    ->label('In Packages')
+                    ->badge()
+                    ->color(fn (int $state): string => $state > 0 ? 'info' : 'gray')
+                    ->counts('packages')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('external_id')
                     ->limit(20)
                     ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
@@ -268,7 +274,7 @@ class TestResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\PackagesRelationManager::class,
         ];
     }
 
