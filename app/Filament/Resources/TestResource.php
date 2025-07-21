@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Enums\ActionsPosition;
+use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\Artisan;
 
 class TestResource extends Resource
 {
@@ -233,6 +235,94 @@ class TestResource extends Resource
                     ])
                     ->label('Test Type')
                     ->placeholder('All Test Types'),
+            ])
+            ->headerActions([
+                Tables\Actions\CreateAction::make()
+                    ->label('New Test'),
+                Tables\Actions\Action::make('sync_info')
+                    ->label('Sync Info')
+                    ->icon('heroicon-o-information-circle')
+                    ->color('gray')
+                    ->modalHeading('Test Synchronization Information')
+                    ->modalContent(view('filament.modals.sync-tests-info'))
+                    ->modalSubmitAction(false)
+                    ->modalCancelActionLabel('Close'),
+                Tables\Actions\Action::make('sync_tests')
+                    ->label('Sync Tests')
+                    ->icon('heroicon-o-arrow-path')
+                    ->color('info')
+                    ->requiresConfirmation()
+                    ->modalHeading('Sync Tests from External API')
+                    ->modalDescription('This will fetch the latest test data from the Mehrizm API and update your local database. New tests will be created and existing tests will be updated based on their external ID.')
+                    ->modalSubmitActionLabel('Start Sync')
+                    ->modalIcon('heroicon-o-cloud-arrow-down')
+                    ->action(function () {
+                        try {
+                            // Show processing notification
+                            Notification::make()
+                                ->title('Sync Started')
+                                ->body('Syncing tests from external API...')
+                                ->info()
+                                ->send();
+                            
+                            // Run the sync command
+                            $exitCode = Artisan::call('sync:tests', ['--no-ssl' => true]);
+                            $output = Artisan::output();
+                            
+                            if ($exitCode === 0) {
+                                // Parse the output to get sync statistics
+                                if (str_contains($output, 'Synchronization completed!')) {
+                                    // Extract numbers from output
+                                    preg_match('/Created\s*\|\s*(\d+)/', $output, $createdMatches);
+                                    preg_match('/Updated\s*\|\s*(\d+)/', $output, $updatedMatches);
+                                    preg_match('/Errors\s*\|\s*(\d+)/', $output, $errorMatches);
+                                    preg_match('/Total Processed\s*\|\s*(\d+)/', $output, $totalMatches);
+                                    
+                                    $created = $createdMatches[1] ?? 0;
+                                    $updated = $updatedMatches[1] ?? 0;
+                                    $errors = $errorMatches[1] ?? 0;
+                                    $total = $totalMatches[1] ?? 0;
+                                    
+                                    if ($errors > 0) {
+                                        Notification::make()
+                                            ->title('Tests Synced with Warnings')
+                                            ->body("Processed {$total} tests: {$created} created, {$updated} updated, {$errors} errors")
+                                            ->warning()
+                                            ->duration(10000)
+                                            ->send();
+                                    } else {
+                                        Notification::make()
+                                            ->title('Tests Synced Successfully!')
+                                            ->body("Processed {$total} tests: {$created} created, {$updated} updated")
+                                            ->success()
+                                            ->duration(8000)
+                                            ->send();
+                                    }
+                                } else {
+                                    Notification::make()
+                                        ->title('Sync Completed')
+                                        ->body('Tests have been synchronized with the external API.')
+                                        ->success()
+                                        ->send();
+                                }
+                            } else {
+                                Notification::make()
+                                    ->title('Sync Failed')
+                                    ->body('The sync command returned an error. Check the logs for details.')
+                                    ->danger()
+                                    ->duration(10000)
+                                    ->send();
+                            }
+                            
+                        } catch (\Exception $e) {
+                            Notification::make()
+                                ->title('Sync Error')
+                                ->body('Failed to execute sync: ' . $e->getMessage())
+                                ->danger()
+                                ->duration(10000)
+                                ->send();
+                        }
+                    }),
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
