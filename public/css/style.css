@@ -726,13 +726,13 @@ section.career-counselling {
 
 .our-plan table tr td:nth-child(2) {
   background: #ECFBFF;
-  text-align: left;
+  /* text-align: left; */
   color: #005870;
 }
 
 .our-plan table tr td:last-child {
   background: #D2F5FF;
-  text-align: left;
+  /* text-align: left; */
   color: #005870;
 }
 
