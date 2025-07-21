@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Package extends Model
 {
@@ -42,5 +44,46 @@ class Package extends Model
     public function scopeIsInactive($query)
     {
         return $query->where('status', self::STATUS_INACTIVE);
+    }
+
+    /**
+     * Get the tests associated with this package through the pivot table.
+     */
+    public function tests(): BelongsToMany
+    {
+        return $this->belongsToMany(Test::class, 'package_has_tests')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Get the package-test relationships for this package.
+     */
+    public function packageHasTests(): HasMany
+    {
+        return $this->hasMany(PackageHasTest::class);
+    }
+
+    /**
+     * Get only activated tests for this package.
+     */
+    public function activeTests(): BelongsToMany
+    {
+        return $this->tests()->where('activated', true);
+    }
+
+    /**
+     * Get the total number of tests associated with this package.
+     */
+    public function getTestsCountAttribute(): int
+    {
+        return $this->tests()->count();
+    }
+
+    /**
+     * Get the total number of active tests associated with this package.
+     */
+    public function getActiveTestsCountAttribute(): int
+    {
+        return $this->activeTests()->count();
     }
 }

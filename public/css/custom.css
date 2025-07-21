@@ -204,3 +204,72 @@
 .career-details .table-responsive {
     margin-top: 1rem;
 }
+
+/* Package Tests Styling */
+.test-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.test-list li {
+    padding: 2px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 15px;
+}
+
+.test-list li:last-child {
+    border-bottom: none;
+}
+
+.test-list li:before {
+    content: "✓";
+    color: #28a745;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.test-list-mobile {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.test-list-mobile li {
+    padding: 3px 0;
+    font-size: 13px;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+    padding-left: 18px;
+}
+
+.test-list-mobile li:last-child {
+    border-bottom: none;
+}
+
+.test-list-mobile li:before {
+    content: "✓";
+    color: #28a745;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 3px;
+}
+
+.included-tests h6 {
+    color: #495057;
+    font-weight: 600;
+}
+
+/* Our Plans table styling for tests */
+.our-plan .table td .test-list li {
+    font-size: 13px;
+    padding: 1px 0;
+}
+
+.our-plan .table td .test-list li:before {
+    font-size: 12px;
+}

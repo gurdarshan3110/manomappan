@@ -22,7 +22,9 @@ class PageController extends Controller
     public function home()
     {
         $meta = config('metatags.home');
-        $packages = Package::isActive()->get();
+        $packages = Package::isActive()->with(['tests' => function ($query) {
+            $query->where('activated', true)->orderBy('display_name');
+        }])->get();
         return view('pages.home', compact('meta', 'packages'));
     }
 

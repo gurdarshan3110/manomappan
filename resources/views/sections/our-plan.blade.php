@@ -83,6 +83,22 @@
                         @endforeach
                       </tr>
                       <tr>
+                        <td>Included Tests</td>
+                        @foreach($packages as $package)
+                        <td>
+                            @if($package->tests->count() > 0)
+                                <ul class="test-list">
+                                    @foreach($package->tests as $test)
+                                        <li>{{ $test->display_name }}</li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <span class="text-muted">No Tests</span>
+                            @endif
+                        </td>
+                        @endforeach
+                      </tr>
+                      <tr>
                         <td class="p-0 bg-transparent"></td>
                         @foreach($packages as $package)
                         <td class="p-0 bg-transparent">
@@ -111,6 +127,23 @@
                 <img src="images/compass3.png" alt="{{ $package->plan_name }}">
               </div>
               <p>{{ $package->description }}</p>
+              
+              @if($package->tests->count() > 0)
+                <div class="included-tests mb-3">
+                  <h6 class="mb-2">Included Tests:</h6>
+                  <ul class="test-list-mobile">
+                    @foreach($package->tests as $test)
+                      <li>{{ $test->display_name }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @else
+                <div class="included-tests mb-3">
+                  <h6 class="mb-2">Included Tests:</h6>
+                  <span class="text-muted">No Tests</span>
+                </div>
+              @endif
+              
               <div class="career-compass-price">
                 <h4>₹ {{ number_format($package->price) }}</h4>
                 <a href="{{ route('pages.payment') }}" class="btn btn-dark w-100">Buy Now</a>
