@@ -99,21 +99,8 @@ class PageController extends Controller
 
     public function payment(Request $request)
     {
-        $meta = config('metatags.payment', [
-            'title' => 'Payment - Complete Your Purchase',
-            'description' => 'Complete your career counselling package purchase securely'
-        ]);
-        
-        $packageId = $request->get('package_id');
-        $selectedPackage = null;
-        
-        if ($packageId) {
-            $selectedPackage = Package::isActive()->with(['tests' => function ($query) {
-                $query->where('activated', true)->orderBy('display_name');
-            }])->find($packageId);
-        }
-        
-        return view('pages.payment', compact('meta', 'selectedPackage'));
+        // Redirect to Razorpay payment controller
+        return redirect()->route('razorpay.payment.index', ['package_id' => $request->get('package_id')]);
     }
 
     public function cluster($slug)

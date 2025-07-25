@@ -179,7 +179,7 @@ a.forgot-pswd-label:hover {
 }
 
 .payment-processed {
-  margin-top: 213px;
+  margin: 100px 0;
 }
 
 .payment-processed-inner span {
@@ -1831,4 +1831,7 @@ section.our-plan.our-plan-mob {
   }
 
 
+}
+.bg-white{
+  background: #fff !important;
 }

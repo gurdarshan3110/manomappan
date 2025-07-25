@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('pages.')->group(function () {
@@ -37,4 +38,12 @@ Route::name('user.')->middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('update-profile');
     Route::put('/profile/password', [UserController::class, 'updatePassword'])->name('update-password');
+});
+
+// Razorpay Payment Routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('payment-info', [RazorpayPaymentController::class, 'index'])->name('razorpay.payment.index');
+    Route::post('procced-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+    Route::get('payment-success', [RazorpayPaymentController::class, 'success'])->name('razorpay.payment.success');
+    Route::post('create-order', [RazorpayPaymentController::class, 'createOrder'])->name('razorpay.order.create');
 });

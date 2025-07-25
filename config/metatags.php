@@ -49,6 +49,12 @@ return [
         'keywords' => 'payment, career package payment, secure payment, manomaapan',
         'author' => 'Manomaapan',
     ],
+    'payment_success' => [
+        'title' => 'Payment Successful - Welcome to Manomaapan',
+        'description' => 'Your payment has been processed successfully. Welcome to your career counselling journey with Manomaapan.',
+        'keywords' => 'payment success, career counselling, manomaapan, package activated',
+        'author' => 'Manomaapan',
+    ],
     'dashboard' => [
         'title' => 'Dashboard - Manomaapan',
         'description' => 'Your personal dashboard for managing career counselling and guidance resources.',
