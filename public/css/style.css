@@ -556,7 +556,7 @@ ul.address-details li {
   margin-bottom: 0;
 }
 
-.career-plan a.btn.btn-dark {
+.career-plan .btn.btn-dark {
   display: inline-block;
   margin: 32px 0 0 0;
   background: #005870;

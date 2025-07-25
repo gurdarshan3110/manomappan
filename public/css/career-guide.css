@@ -155,7 +155,7 @@ li.breadcrumb-item a {
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
     position: absolute;
-    left: -9999px;
+    /* left: -9999px; */
 }
 
 [type="radio"]:checked+label,
