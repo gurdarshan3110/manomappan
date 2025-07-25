@@ -131,48 +131,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<style>
-.tests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.test-item {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-left: 4px solid #007bff;
-}
-
-.test-item h5 {
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.test-item p {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.career-plan label {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.career-plan label:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.career-plan input[type="radio"]:checked + p span {
-    color: #007bff;
-    font-weight: 600;
-}
-</style>
-
 @endsection
