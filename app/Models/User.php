@@ -7,6 +7,8 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
@@ -144,5 +146,55 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         static::saving(function ($user) {
             $user->name = trim("{$user->first_name} {$user->last_name}");
         });
+    }
+
+    /**
+     * Get all payments for this user.
+     */
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    /**
+     * Get all user package relationships.
+     */
+    public function userHasPackages(): HasMany
+    {
+        return $this->hasMany(UserHasPackage::class);
+    }
+
+    /**
+     * Get all packages owned by this user through the pivot table.
+     */
+    public function packages(): BelongsToMany
+    {
+        return $this->belongsToMany(Package::class, 'user_has_packages')
+                    ->withPivot('payment_id', 'activated_at', 'expires_at', 'is_active')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Get only active packages for this user.
+     */
+    public function activePackages(): BelongsToMany
+    {
+        return $this->packages()->wherePivot('is_active', true);
+    }
+
+    /**
+     * Check if user has a specific package.
+     */
+    public function hasPackage(int $packageId): bool
+    {
+        return $this->activePackages()->where('package_id', $packageId)->exists();
+    }
+
+    /**
+     * Get successful payments only.
+     */
+    public function successfulPayments(): HasMany
+    {
+        return $this->payments()->successful();
     }
 }

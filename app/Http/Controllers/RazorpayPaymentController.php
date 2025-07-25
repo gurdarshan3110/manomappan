@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Package;
+use App\Models\Payment;
+use App\Models\UserHasPackage;
 use App\Traits\HasNavigationMenu;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Razorpay\Api\Api;
 
@@ -69,38 +72,75 @@ class RazorpayPaymentController extends Controller
                     // Get package details
                     $package = Package::find($input['package_id']);
                     
-                    // TODO: Store transaction and package purchase details in database
-                    // This is where you'll implement:
-                    // 1. Create transaction record
-                    // 2. Link package to user
-                    // 3. Send confirmation email
-                    // 4. Update user package status
+                    // Use database transaction to ensure data consistency
+                    DB::beginTransaction();
                     
-                    $transactionData = [
-                        'user_id' => Auth::id(),
-                        'package_id' => $input['package_id'],
-                        'payment_id' => $payment['id'],
-                        'order_id' => $payment['order_id'],
-                        'amount' => $payment['amount'] / 100, // Convert paisa to rupees
-                        'currency' => $payment['currency'],
-                        'status' => $payment['status'],
-                        'payment_method' => $payment['method'],
-                        'package_name' => $package->plan_name,
-                        'fee' => $payment['fee'] / 100, // Convert paisa to rupees
-                        'contact' => $payment['contact'],
-                        'email' => $payment['email'],
-                        'card_id' => $payment['card_id'] ?? null,
-                        'international' => $payment['international'],
-                        'created_at' => $payment['created_at'],
-                        'payment_response' => json_encode($payment->toArray())
-                    ];
-                    
-                    // Store in session for now - you can create a transactions table later
-                    Session::put('transaction_data', $transactionData);
-                    Session::put('success', 'Payment successful! Your package has been activated.');
-                    
-                    return redirect()->route('razorpay.payment.success', ['package_id' => $package->id])
-                        ->with('success', 'Payment completed successfully! Welcome to ' . $package->plan_name);
+                    try {
+                        // 1. Create payment record
+                        $paymentRecord = Payment::create([
+                            'user_id' => Auth::id(),
+                            'package_id' => $input['package_id'],
+                            'payment_id' => $payment['id'],
+                            'order_id' => $payment['order_id'],
+                            'amount' => $payment['amount'] / 100, // Convert paisa to rupees
+                            'currency' => $payment['currency'],
+                            'status' => $payment['status'],
+                            'payment_method' => $payment['method'],
+                            'package_name' => $package->plan_name,
+                            'fee' => ($payment['fee'] ?? 0) / 100, // Convert paisa to rupees
+                            'contact' => $payment['contact'] ?? null,
+                            'email' => $payment['email'] ?? null,
+                            'card_id' => $payment['card_id'] ?? null,
+                            'international' => $payment['international'] ?? false,
+                            'payment_created_at' => $payment['created_at'],
+                            'payment_response' => $payment->toArray()
+                        ]);
+                        
+                        // 2. Create user-package relationship
+                        UserHasPackage::create([
+                            'user_id' => Auth::id(),
+                            'package_id' => $input['package_id'],
+                            'payment_id' => $paymentRecord->id,
+                            'activated_at' => now(),
+                            'expires_at' => null, // Set expiration date if packages have expiry
+                            'is_active' => true
+                        ]);
+                        
+                        // Commit transaction
+                        DB::commit();
+                        
+                        // Store transaction data in session for success page
+                        $transactionData = [
+                            'user_id' => Auth::id(),
+                            'package_id' => $input['package_id'],
+                            'payment_id' => $payment['id'],
+                            'order_id' => $payment['order_id'],
+                            'amount' => $payment['amount'] / 100,
+                            'currency' => $payment['currency'],
+                            'status' => $payment['status'],
+                            'payment_method' => $payment['method'],
+                            'package_name' => $package->plan_name,
+                            'fee' => ($payment['fee'] ?? 0) / 100,
+                            'contact' => $payment['contact'] ?? null,
+                            'email' => $payment['email'] ?? null,
+                            'card_id' => $payment['card_id'] ?? null,
+                            'international' => $payment['international'] ?? false,
+                            'created_at' => $payment['created_at'],
+                            'payment_response' => json_encode($payment->toArray())
+                        ];
+                        
+                        Session::put('transaction_data', $transactionData);
+                        Session::put('success', 'Payment successful! Your package has been activated.');
+                        
+                        return redirect()->route('razorpay.payment.success', ['package_id' => $package->id])
+                            ->with('success', 'Payment completed successfully! Welcome to ' . $package->plan_name);
+                            
+                    } catch (Exception $e) {
+                        // Rollback transaction on error
+                        DB::rollback();
+                        Session::put('error', 'Failed to save payment details: ' . $e->getMessage());
+                        return redirect()->back()->with('error', 'Payment processing failed. Please contact support.');
+                    }
                     
                 } else {
                     // Payment not successful

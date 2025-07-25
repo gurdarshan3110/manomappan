@@ -86,4 +86,62 @@ class Package extends Model
     {
         return $this->activeTests()->count();
     }
+
+    /**
+     * Get all payments for this package.
+     */
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    /**
+     * Get all user package relationships.
+     */
+    public function userHasPackages(): HasMany
+    {
+        return $this->hasMany(UserHasPackage::class);
+    }
+
+    /**
+     * Get all users who have purchased this package.
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_has_packages')
+                    ->withPivot('payment_id', 'activated_at', 'expires_at', 'is_active')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Get users with active subscriptions to this package.
+     */
+    public function activeUsers(): BelongsToMany
+    {
+        return $this->users()->wherePivot('is_active', true);
+    }
+
+    /**
+     * Get successful payments for this package.
+     */
+    public function successfulPayments(): HasMany
+    {
+        return $this->payments()->successful();
+    }
+
+    /**
+     * Get total revenue from this package.
+     */
+    public function getTotalRevenueAttribute(): float
+    {
+        return $this->successfulPayments()->sum('amount');
+    }
+
+    /**
+     * Get total sales count for this package.
+     */
+    public function getTotalSalesAttribute(): int
+    {
+        return $this->successfulPayments()->count();
+    }
 }
