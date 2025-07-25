@@ -17,6 +17,9 @@
 
                         <form method="POST" action="{{ route('auth.register') }}">
                             @csrf
+                            @if(session('redirect_url') || request('redirect_url'))
+                                <input type="hidden" name="redirect_url" value="{{ session('redirect_url') ?? request('redirect_url') }}">
+                            @endif
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="first_name" class="form-label">Your First Name</label>
@@ -86,13 +89,15 @@
                             </div>
                         </form>
                         <div class="register-opt mt-4">
-                            <h6>Already have an account? <a href="{{ route('pages.login') }}">Login here</a></h6>
+                            <h6>Already have an account? 
+                                <a href="{{ route('pages.login') }}{{ (session('redirect_url') || request('redirect_url')) ? '?redirect_url=' . urlencode(session('redirect_url') ?? request('redirect_url')) : '' }}">Login here</a>
+                            </h6>
                         </div>
                         <div class="register-opt2">
                             <h4>Alternatively you can also register With</h4>
                             <ul>
                                 <li>
-                                    <a href="{{ route('auth.google') }}"><img src="images/social-icon1.png"><span>Google</span></a>
+                                    <a href="{{ route('auth.google') }}{{ (session('redirect_url') || request('redirect_url')) ? '?redirect_url=' . urlencode(session('redirect_url') ?? request('redirect_url')) : '' }}"><img src="images/social-icon1.png"><span>Google</span></a>
                                 </li>
                             </ul>
                         </div>

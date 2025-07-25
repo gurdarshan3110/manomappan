@@ -28,15 +28,29 @@ class PageController extends Controller
         return view('pages.home', compact('meta', 'packages'));
     }
 
-    public function login()
+    public function login(Request $request)
     {
         $meta = config('metatags.login');
+        
+        // Store redirect URL in session if provided
+        $redirectUrl = $request->get('redirect_url');
+        if ($redirectUrl) {
+            session(['redirect_url' => $redirectUrl]);
+        }
+        
         return view('pages.login', compact('meta'));
     }
 
-    public function register()
+    public function register(Request $request)
     {
         $meta = config('metatags.register');
+        
+        // Store redirect URL in session if provided
+        $redirectUrl = $request->get('redirect_url');
+        if ($redirectUrl) {
+            session(['redirect_url' => $redirectUrl]);
+        }
+        
         return view('pages.register', compact('meta'));
     }
 

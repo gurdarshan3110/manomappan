@@ -68,7 +68,14 @@
                         </div>
                     </div>
                     
-                    <button type="button" class="btn btn-dark" onclick="proceedToPayment()">Pay Now</button>
+                    @auth
+                        <button type="button" class="btn btn-dark" onclick="proceedToPayment()">Pay Now</button>
+                    @else
+                        <button type="button" class="btn btn-dark" onclick="proceedToAuth()">Continue</button>
+                        <p class="mt-2 text-muted text-center">
+                            <small>Please login or register to continue with your purchase</small>
+                        </p>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -90,8 +97,22 @@ function updatePrice(radio) {
 function proceedToPayment() {
     const selectedPackage = document.querySelector('input[name="selected_package"]:checked');
     if (selectedPackage) {
-        // For now, just redirect to payment page - you can modify this later
+        // Redirect to payment page with package ID
         window.location.href = "{{ route('pages.payment') }}?package_id=" + selectedPackage.value;
+    } else {
+        alert('Please select a package before proceeding.');
+    }
+}
+
+function proceedToAuth() {
+    const selectedPackage = document.querySelector('input[name="selected_package"]:checked');
+    if (selectedPackage) {
+        // Store the current URL with selected package for redirect after auth
+        const currentUrl = window.location.pathname;
+        const redirectUrl = encodeURIComponent(currentUrl);
+        
+        // Directly redirect to login page
+        window.location.href = "{{ route('pages.login') }}?redirect_url=" + redirectUrl;
     } else {
         alert('Please select a package before proceeding.');
     }
@@ -109,5 +130,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+<style>
+.tests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.test-item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #007bff;
+}
+
+.test-item h5 {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.test-item p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.career-plan label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.career-plan label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.career-plan input[type="radio"]:checked + p span {
+    color: #007bff;
+    font-weight: 600;
+}
+</style>
 
 @endsection

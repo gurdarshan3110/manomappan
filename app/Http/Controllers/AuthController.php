@@ -37,11 +37,27 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('user.dashboard')->with('success', 'Registration successful!');
+        // Check for redirect URL after successful registration
+        $redirectUrl = $request->input('redirect_url') ?? session('redirect_url');
+        if ($redirectUrl && filter_var($redirectUrl, FILTER_VALIDATE_URL) === false) {
+            // If it's a relative path, make it absolute
+            $redirectUrl = url($redirectUrl);
+        }
+
+        // Clear the redirect URL from session
+        session()->forget('redirect_url');
+
+        return redirect($redirectUrl ?? route('user.dashboard'))->with('success', 'Registration successful!');
     }
 
-    public function redirectToGoogle()
+    public function redirectToGoogle(Request $request)
     {
+        // Store redirect URL in session if provided
+        $redirectUrl = $request->get('redirect_url');
+        if ($redirectUrl) {
+            session(['redirect_url' => $redirectUrl]);
+        }
+        
         return Socialite::driver('google')->redirect();
     }
 
@@ -54,7 +70,12 @@ class AuthController extends Controller
 
             if ($findUser) {
                 Auth::login($findUser);
-                return redirect()->route('user.dashboard');
+                
+                // Check for redirect URL after successful Google login
+                $redirectUrl = session('redirect_url');
+                session()->forget('redirect_url');
+                
+                return redirect($redirectUrl ?? route('user.dashboard'));
             } else {
                 $names = explode(' ', $user->name);
                 $firstName = $names[0];
@@ -71,7 +92,12 @@ class AuthController extends Controller
                 ]);
 
                 Auth::login($newUser);
-                return redirect()->route('user.dashboard');
+                
+                // Check for redirect URL after successful Google registration
+                $redirectUrl = session('redirect_url');
+                session()->forget('redirect_url');
+                
+                return redirect($redirectUrl ?? route('user.dashboard'));
             }
         } catch (Exception $e) {
             return redirect()->route('pages.login')->with('error', 'Something went wrong!');
@@ -89,7 +115,17 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->user_type === User::USER_TYPE_USER) {
-                return redirect()->intended(route('user.dashboard'));
+                // Check for redirect URL after successful login
+                $redirectUrl = $request->input('redirect_url') ?? session('redirect_url');
+                if ($redirectUrl && filter_var($redirectUrl, FILTER_VALIDATE_URL) === false) {
+                    // If it's a relative path, make it absolute
+                    $redirectUrl = url($redirectUrl);
+                }
+
+                // Clear the redirect URL from session
+                session()->forget('redirect_url');
+
+                return redirect($redirectUrl ?? route('user.dashboard'));
             } else {
                 Auth::logout();
                 return back()->withErrors([
