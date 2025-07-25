@@ -162,7 +162,7 @@ section.sign-up.coming-soon {
   min-height: calc(100vh - 443px);
 }
 
-a.btn.btn-dark:hover {
+.btn.btn-dark:hover {
   background: #0077AB;
 }
 
@@ -195,7 +195,7 @@ a.forgot-pswd-label:hover {
   margin: 24px 0;
 }
 
-.payment-processed-inner a.btn.btn-dark {
+.payment-processed-inner .btn.btn-dark {
   display: inline-block;
   margin: 24px 0 0 0;
   background: #005870;
@@ -313,7 +313,7 @@ a.forgot-pswd-label:hover {
   margin-bottom: 4px;
 }
 
-a.btn.btn-dark {
+.btn.btn-dark {
   background: var(--heading-color);
   font-size: 16px;
   font-weight: 600;
@@ -1272,7 +1272,7 @@ section.our-plan.our-plan-mob {
     padding: 6px 14px;
   }
 
-  a.btn.btn-dark {
+  .btn.btn-dark {
     font-size: 12px;
     padding: 6px 14px;
   }
@@ -1314,7 +1314,7 @@ section.our-plan.our-plan-mob {
 
   }
 
-  .payment-processed-inner a.btn.btn-dark {
+  .payment-processed-inner .btn.btn-dark {
     font-size: 12px;
     display: block;
   }
@@ -1396,7 +1396,7 @@ section.our-plan.our-plan-mob {
     font-size: 20px;
   }
 
-  .payment-processed-inner a.btn.btn-dark {
+  .payment-processed-inner .btn.btn-dark {
     text-align: left;
   }
 
@@ -1536,7 +1536,7 @@ section.our-plan.our-plan-mob {
     margin-bottom: 16px;
   }
 
-  .register a.btn.btn-dark {
+  .register .btn.btn-dark {
     font-weight: 400;
   }
 
@@ -1633,7 +1633,7 @@ section.our-plan.our-plan-mob {
     margin: 0;
   }
 
-  .career-plan a.btn.btn-dark {
+  .career-plan .btn.btn-dark {
     display: block;
   }
 
@@ -1706,7 +1706,7 @@ section.our-plan.our-plan-mob {
     margin: 48px 0;
   }
 
-  a.btn.btn-dark {
+  .btn.btn-dark {
     font-size: 12px;
     padding: 10px 32px;
   }
@@ -1746,7 +1746,7 @@ section.our-plan.our-plan-mob {
     justify-content: space-between;
   }
 
-  .career-compass-price a.btn.btn-dark.w-100 {
+  .career-compass-price .btn.btn-dark.w-100 {
     width: 60% !important;
   }
 

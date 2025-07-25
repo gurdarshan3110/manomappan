@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Package;
+use App\Traits\HasNavigationMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    use HasNavigationMenu;
+
+    public function __construct()
+    {
+        // Share navigation menu with all views
+        view()->share('navigationMenu', $this->getNavigationMenu());
+    }
+
     public function dashboard()
     {
         $meta = config('metatags.dashboard');

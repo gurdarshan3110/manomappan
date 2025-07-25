@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\Career;
 use App\Models\CareerCluster;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -32,6 +33,9 @@ class PageController extends Controller
     {
         $meta = config('metatags.login');
         
+        if (Auth::check()) {
+            return redirect()->route('user.dashboard');
+        }
         // Store redirect URL in session if provided
         $redirectUrl = $request->get('redirect_url');
         if ($redirectUrl) {
@@ -45,6 +49,9 @@ class PageController extends Controller
     {
         $meta = config('metatags.register');
         
+        if (Auth::check()) {
+            return redirect()->route('user.dashboard');
+        }
         // Store redirect URL in session if provided
         $redirectUrl = $request->get('redirect_url');
         if ($redirectUrl) {
