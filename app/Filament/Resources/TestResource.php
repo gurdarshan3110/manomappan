@@ -237,16 +237,6 @@ class TestResource extends Resource
                     ->placeholder('All Test Types'),
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make()
-                    ->label('New Test'),
-                Tables\Actions\Action::make('sync_info')
-                    ->label('Sync Info')
-                    ->icon('heroicon-o-information-circle')
-                    ->color('gray')
-                    ->modalHeading('Test Synchronization Information')
-                    ->modalContent(view('filament.modals.sync-tests-info'))
-                    ->modalSubmitAction(false)
-                    ->modalCancelActionLabel('Close'),
                 Tables\Actions\Action::make('sync_tests')
                     ->label('Sync Tests')
                     ->icon('heroicon-o-arrow-path')
