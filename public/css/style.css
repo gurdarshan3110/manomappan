@@ -1835,3 +1835,18 @@ section.our-plan.our-plan-mob {
 .bg-white{
   background: #fff !important;
 }
+.bg-success {
+  background: #28a745 !important;
+}
+.bg-danger {
+  background: #dc3545 !important;
+}
+.bg-warning {
+  background: #ffc107 !important;
+}
+.bg-info {
+  background: #17a2b8 !important;
+}
+.bg-light {
+  background: #f8f9fa !important;   
+}

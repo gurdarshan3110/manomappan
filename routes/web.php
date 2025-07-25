@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserPaymentController;
 use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::name('auth.')->group(function () {
 Route::name('user.')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::get('/payments', [UserPaymentController::class, 'index'])->name('payments');
     // Add more authenticated routes here
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('update-profile');

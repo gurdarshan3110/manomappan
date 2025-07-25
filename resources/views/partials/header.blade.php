@@ -40,7 +40,6 @@
                             <a class="nav-link {{ request()->routeIs('user.dashboard') ? 'active' : '' }}"
                                 href="{{ route('user.dashboard') }}">Dashboard</a>
                         </li>
-
                         <div class="profile">
                             <div class="user">{{ get_initials(auth()->user()->name) }}</div>
                             <div class="img-box">
@@ -49,6 +48,7 @@
                         </div>
                         <div class="menu">
                             <ul>
+                                <li><a href="{{ route('user.payments') }}">My Payments</a></li>
                                 <li><a href="{{ route('user.profile') }}">Profile</a></li>
                                 <li>
                                     <form method="POST" action="{{ route('user.logout') }}">

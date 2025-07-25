@@ -269,7 +269,7 @@
                         <h3>Join thousands of students who have benefited from career counselling. </h3>
                    </div> 
                    <div class="col-lg-4">
-                      <a href="payment.html" class="btn btn-dark w-100">Join Manomaapan Now!</a>
+                      <a href="{{ route('auth.register') }}" class="btn btn-dark w-100">Join Manomaapan Now!</a>
                    </div>
                 </div>
             </div>
