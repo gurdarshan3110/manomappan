@@ -7,7 +7,7 @@
                 <div class="col-lg-6">
                     <div class="banner-left">
                         <nav class="navbar navbar-expand-lg bg-white navbar-light language-nav">
-                            <a href="index.html" class="">
+                            <a href="#" class="">
                                 Select Language
                             </a>
                             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#language">
