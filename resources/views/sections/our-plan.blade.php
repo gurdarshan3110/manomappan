@@ -36,7 +36,7 @@
                         <td class="p-0" valign="middle">Buy Plan</td>
                         @foreach($packages as $package)
                         <td class="p-0 bg-transparent">
-                            <a href="{{ route('pages.payment') }}" class="btn btn-{{ $loop->first ? 'light' : 'dark' }} w-100">Buy Now</a>
+                            <a href="{{ route('pages.buy_package', $package->id) }}" class="btn btn-{{ $loop->first ? 'light' : 'dark' }} w-100">Buy Now</a>
                         </td>
                         @endforeach
                       </tr>
@@ -102,7 +102,7 @@
                         <td class="p-0 bg-transparent"></td>
                         @foreach($packages as $package)
                         <td class="p-0 bg-transparent">
-                            <a href="{{ route('pages.payment') }}" class="btn btn-{{ $loop->first ? 'light' : 'dark' }} w-100">Buy Now</a>
+                            <a href="{{ route('pages.buy_package', $package->id) }}" class="btn btn-{{ $loop->first ? 'light' : 'dark' }} w-100">Buy Now</a>
                         </td>
                         @endforeach
                       </tr>
@@ -146,7 +146,7 @@
               
               <div class="career-compass-price">
                 <h4>₹ {{ number_format($package->price) }}</h4>
-                <a href="{{ route('pages.payment') }}" class="btn btn-dark w-100">Buy Now</a>
+                <a href="{{ route('pages.buy_package', $package->id) }}" class="btn btn-dark w-100">Buy Now</a>
               </div>
             </div>
           </div>

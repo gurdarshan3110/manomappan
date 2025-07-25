@@ -58,6 +58,43 @@ class PageController extends Controller
         return view('pages.forgot_password', compact('meta'));
     }
 
+    public function buyPackage(Request $request, $id = null)
+    {
+        $meta = config('metatags.buy_package', [
+            'title' => 'Buy Package - Choose Your Career Plan',
+            'description' => 'Select the perfect career counselling package for your journey'
+        ]);
+        
+        $packages = Package::isActive()->with(['tests' => function ($query) {
+            $query->where('activated', true)->orderBy('display_name');
+        }])->get();
+        
+        // Set selected package if ID is provided
+        $selectedPackageId = $id ?? ($packages->first()->id ?? null);
+        $selectedPackage = $packages->firstWhere('id', $selectedPackageId);
+        
+        return view('pages.buy-package', compact('meta', 'packages', 'selectedPackageId', 'selectedPackage'));
+    }
+
+    public function payment(Request $request)
+    {
+        $meta = config('metatags.payment', [
+            'title' => 'Payment - Complete Your Purchase',
+            'description' => 'Complete your career counselling package purchase securely'
+        ]);
+        
+        $packageId = $request->get('package_id');
+        $selectedPackage = null;
+        
+        if ($packageId) {
+            $selectedPackage = Package::isActive()->with(['tests' => function ($query) {
+                $query->where('activated', true)->orderBy('display_name');
+            }])->find($packageId);
+        }
+        
+        return view('pages.payment', compact('meta', 'selectedPackage'));
+    }
+
     public function cluster($slug)
     {
         $cluster = CareerCluster::where('slug', $slug)

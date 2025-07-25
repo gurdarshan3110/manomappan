@@ -37,6 +37,18 @@ return [
         'keywords' => 'forgot password, manomaapan, career counselling, career guidance',
         'author' => 'Manomaapan',
     ],
+    'buy_package' => [
+        'title' => 'Buy Package - Choose Your Career Plan | Manomaapan',
+        'description' => 'Select the perfect career counselling package for your journey. Choose from Career Compass, Navigator, or Superstar plans.',
+        'keywords' => 'buy package, career plans, career counselling packages, career guidance plans, manomaapan',
+        'author' => 'Manomaapan',
+    ],
+    'payment' => [
+        'title' => 'Payment - Complete Your Purchase | Manomaapan',
+        'description' => 'Complete your career counselling package purchase securely with multiple payment options.',
+        'keywords' => 'payment, career package payment, secure payment, manomaapan',
+        'author' => 'Manomaapan',
+    ],
     'dashboard' => [
         'title' => 'Dashboard - Manomaapan',
         'description' => 'Your personal dashboard for managing career counselling and guidance resources.',
