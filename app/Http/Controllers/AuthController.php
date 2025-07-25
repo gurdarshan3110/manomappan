@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\EmailService;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use Exception;
@@ -35,6 +36,9 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Registration failed, please try again.');
         }
 
+        // Send welcome email
+        EmailService::sendWelcomeEmail($user);
+
         Auth::login($user);
 
         // Check for redirect URL after successful registration
@@ -47,7 +51,7 @@ class AuthController extends Controller
         // Clear the redirect URL from session
         session()->forget('redirect_url');
 
-        return redirect($redirectUrl ?? route('user.dashboard'))->with('success', 'Registration successful!');
+        return redirect($redirectUrl ?? route('user.dashboard'))->with('success', 'Registration successful! Welcome email sent.');
     }
 
     public function redirectToGoogle(Request $request)
@@ -90,6 +94,9 @@ class AuthController extends Controller
                     'status' => User::STATUS_ACTIVE,
                     'password' => encrypt(rand(1, 10000)),
                 ]);
+
+                // Send welcome email for new Google users
+                EmailService::sendWelcomeEmail($newUser);
 
                 Auth::login($newUser);
                 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Package;
 use App\Models\Payment;
 use App\Models\UserHasPackage;
+use App\Services\EmailService;
 use App\Traits\HasNavigationMenu;
 use Exception;
 use Illuminate\Http\Request;
@@ -108,6 +109,9 @@ class RazorpayPaymentController extends Controller
                         
                         // Commit transaction
                         DB::commit();
+                        
+                        // Send payment success email with PDF receipt
+                        EmailService::sendPaymentSuccessEmail(Auth::user(), $paymentRecord);
                         
                         // Store transaction data in session for success page
                         $transactionData = [

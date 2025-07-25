@@ -49,3 +49,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('payment-success', [RazorpayPaymentController::class, 'success'])->name('razorpay.payment.success');
     Route::post('create-order', [RazorpayPaymentController::class, 'createOrder'])->name('razorpay.order.create');
 });
+
+// Test Email Routes (Development Only)
+if (config('app.env') === 'local') {
+    Route::get('/test-emails', [App\Http\Controllers\TestEmailController::class, 'testEmails']);
+    Route::get('/test-password-email', [App\Http\Controllers\TestEmailController::class, 'testPasswordEmail']);
+}

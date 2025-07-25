@@ -5,8 +5,10 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
+use App\Services\EmailService;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Enums\ActionsPosition;
@@ -138,6 +140,36 @@ class UserResource extends Resource
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
+                    Tables\Actions\Action::make('send_welcome_email')
+                        ->label('Send Welcome Email')
+                        ->icon('heroicon-o-envelope')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->modalHeading('Send Welcome Email')
+                        ->modalDescription('Are you sure you want to send a welcome email to this user?')
+                        ->action(function (User $record) {
+                            EmailService::sendWelcomeEmail($record);
+                            Notification::make()
+                                ->success()
+                                ->title('Welcome email sent successfully')
+                                ->body("Email sent to {$record->email}")
+                                ->send();
+                        }),
+                    Tables\Actions\Action::make('reset_password')
+                        ->label('Reset Password')
+                        ->icon('heroicon-o-key')
+                        ->color('warning')
+                        ->requiresConfirmation()
+                        ->modalHeading('Reset User Password')
+                        ->modalDescription('This will generate a new password and send it to the user via email.')
+                        ->action(function (User $record) {
+                            $password = EmailService::sendPasswordResetEmail($record);
+                            Notification::make()
+                                ->success()
+                                ->title('Password reset email sent')
+                                ->body("New password sent to {$record->email}")
+                                ->send();
+                        }),
                     Tables\Actions\DeleteAction::make()
                         ->hidden(fn (User $record): bool => $record->user_type === User::USER_TYPE_ADMIN),
                 ])->tooltip('Actions'),

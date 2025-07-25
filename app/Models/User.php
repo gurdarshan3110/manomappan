@@ -197,4 +197,20 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return $this->payments()->successful();
     }
+
+    /**
+     * Get the user's display name for emails
+     */
+    public function getEmailDisplayName(): string
+    {
+        return $this->name ?: $this->full_name ?: $this->email;
+    }
+
+    /**
+     * Check if user has verified email
+     */
+    public function hasVerifiedEmail(): bool
+    {
+        return !is_null($this->email_verified_at);
+    }
 }
