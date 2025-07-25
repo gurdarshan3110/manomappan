@@ -27,6 +27,8 @@ class TestResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Tests';
 
+    protected static ?string $navigationGroup = 'Career';
+
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form

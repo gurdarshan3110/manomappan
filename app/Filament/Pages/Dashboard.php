@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Widgets\DashboardStatsWidget;
 use App\Filament\Widgets\StatsOverview;
 use App\Models\Package;
 use App\Models\User;
@@ -13,10 +14,10 @@ class Dashboard extends BaseDashboard
     
     protected static ?string $title = 'Dashboard';
 
-    // protected function getHeaderWidgets(): array
-    // {
-    //     return [
-    //         StatsOverview::class,
-    //     ];
-    // }
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            // DashboardStatsWidget::class,
+        ];
+    }
 }
